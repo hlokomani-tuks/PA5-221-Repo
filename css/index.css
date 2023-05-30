@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url("../img/berries-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.header-container {
+    color: white;
+    /*position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 0 100px 0;
+}
+
+.header-container h1{
+    color: white;
+}
+
+.header-container p {
+    line-height: 22px;
+    padding: 10px;
+}
+
+/* ------ Search ------ */
+
+.search-bar button {
+    background: rgb(193, 44, 44);
+    padding: 11px 20px;
+    border: none;
+    border-radius: 0 50px 50px 0;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    box-shadow: 3px 2px 10px rgb(19, 18, 18);
+}
+
+.search-bar button:hover {
+    background-color: rgba(193, 44, 44, 0.7);
+}
+
+.search-bar input {
+    width: 270px;
+    border: none;
+    outline: none;
+    height: 100%;
+    padding: 11px 10px;
+    border: none;
+    border-radius: 50px 0 0 50px;
+}
+
+/* ------ Filter ------ */
+.filter-bar{
+    margin: 30px 0;
+    width: 100%;
+    padding-top: 5px;
+    padding-left: 50px;
+}
+
+.filter-bar ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+ 
+.category {
+    flex: 0 0 calc(13.6667% - 10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(193, 44, 44);
+    padding: 12px;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px;
+    transition: all 0.4 ease;
+    height: 28px;
+}
+
+.category:hover {
+    background-color: rgba(193, 44, 44, 0.7);
+}
+
+.category li{
+    padding: 0 10px;
+    color: white;
+}
