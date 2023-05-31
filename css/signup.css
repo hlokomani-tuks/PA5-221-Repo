@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 125vh;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url("../img/berries-bg.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+header ul {
+    display: none;
+}
+
+header {
+    width: 70%;
+    background-color: white;
+}
+
+#logo {
+    padding-top: 30px;
+}
+
+.cutout {
+    width: 70%;
+    height: 125vh;
+    background-color: white;
+}
+
+/*------- Form ------*/
+
+.asterisk {
+    color: red;
+}
+
+.login-form {
+    padding: 50px 18px 0 70px;
+}
+
+.login-form form {
+    padding-top: 30px;
+}
+
+.login-form form .form-group {
+    padding-bottom: 20px;
+}
+
+.login-form form .form-group input {
+    border-radius: 50px;
+}
+
+.login-form form .form-group label {
+    padding-bottom: 5px;
+    font-size: 16px;
+}
+
+.btn1 {
+    border: none;
+    outline: none;
+    height: 50px;
+    width: 60%;
+    background-color: rgb(193, 44, 44);
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.btn1:hover {
+    background-color: white;
+    border: 1px black solid;
+    color: black;
+}
+
+
+
+
+/*------ signup validation -------*/
+.center .req-star {
+    color: rgb(228, 61, 61);
+}
+
+.form-section .error {
+    color:  rgb(228, 61, 61);
+    position: absolute;
+    bottom: 11px;
+    right: 17px;
+}
+
+.error .fa-check-circle {
+    color: #1F8959;
+}
+
+.error .fa-times-circle {
+    color: rgb(228, 61, 61);
+}
