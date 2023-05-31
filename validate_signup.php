@@ -1,25 +1,33 @@
 <?php
+    session_start();
 
-session_start();
+    $passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
 
-$passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
-
-
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    if($_SERVER['REQUEST_METHOD'] == 'POST') {
         //clean up the data, preventing injection
-        $name = stripslashes(htmlspecialchars(trim($_POST['name'])));
-        $surname = stripslashes(htmlspecialchars(trim($_POST['surname'])));
+        $first_name = stripslashes(htmlspecialchars(trim($_POST['first_name'])));
+        $middle_initial = stripslashes(htmlspecialchars(trim($_POST['middle_initial'])));
+        $last_name = stripslashes(htmlspecialchars(trim($_POST['last_name'])));
         $email = stripslashes(htmlspecialchars(trim($_POST['email'])));
         $password = stripslashes(htmlspecialchars(trim($_POST['password'])));
-        
-
-        $salt = bin2hex(random_bytes(8));
-        $h_password =password_hash($password.$salt, PASSWORD_DEFAULT);
+        $cellphone = stripslashes(htmlspecialchars(trim($_POST['cellphone'])));
         
         //check for empty fields
-        if(empty($name) || empty($surname) || empty($email) || empty($password))
+        if (
+            empty($first_name) || 
+            empty($middle_initial) || 
+            empty($last_name) ||
+            empty($email) ||
+            empty($password) ||
+            empty($cellphone)
+        ) 
         {
-            //echo an alert
+            $response = [
+                "response" => "empty_field",
+            ];
+    
+            header("Content-Type: application/json");
+            echo json_encode($response);
             
             die();
         }
@@ -27,62 +35,99 @@ $passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$
         //check password length
         if(strlen($password) < 8)
         {
-            //echo an alert
+            $response = [
+                "response" => "short_password",
+            ];
+    
+            header("Content-Type: application/json");
+            echo json_encode($response);
+            
             die();
         }
 
         //check for expression
         if(!preg_match($passEx, $password))
         {
-            //echo an alert
+            $response = [
+                "response" => "invalid_password",
+            ];
+    
+            header("Content-Type: application/json");
+            echo json_encode($response);
+
             die();
         }
 
         //checks email
         if(!filter_var($email, FILTER_VALIDATE_EMAIL))
         {
-            //echo an alert
+            $response = [
+                "response" => "invalid_email",
+            ];
+    
+            header("Content-Type: application/json");
+            echo json_encode($response);
+
             die();
         }
 
         //connection to database
-        $servername = "wheatley.cs.up.ac.za";
-        $password = "";
-        $username = "";
-        $databasename = "";
+        $servername = "localhost";
+        $username = "root";
+        $db_password = "root";
+        $databasename = "PA5_hashed";
 
-        $connection = mysqli_connect($servername, $username, $password, $databasename);
+        $connection = mysqli_connect($servername, $username, $db_password, $databasename);
 
-        if(!$connection)
+        if(mysqli_connect_errno())
         {
+            header("HTTP/1.1 500 Internal Server Error");
+            header("Content-Type: application/json");
+
             die("Connection failed: " . mysqli_connect_error($connection));
         }
 
-        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $sql = "SELECT email FROM User WHERE email = '$email'";
         $result = mysqli_query($connection, $sql);
 
         if(mysqli_num_rows($result) > 0)
         {
-            $_SESSION["error"] = "You already have an account.";
-            echo "<script>alert('You already have an account.');</script>";
-            echo "<script>document.location='signup.php'</script>";
-            //header("Location: signup.php");
+            $response = [
+                "response" => "already_registered",
+            ];
+
+            header("Content-Type: application/json");
+            echo json_encode($response);
+
             die();
         }
 
+        $h_password = password_hash($password, PASSWORD_DEFAULT);
+
         //inserting new user into the database
-        $sql2 = "INSERT INTO users () 
-                    VALUES()";
+        $sql2 = "INSERT INTO User (first_name, middle_initial, last_name, password, email, cellphone_number) 
+             VALUES ('$first_name', '$middle_initial', '$last_name', '$h_password', '$email', '$cellphone')";
 
         if(mysqli_query($connection, $sql2))
         {
-            echo "<script>alert('Sign up successful! Write down your API Key BEFORE pressing ok, here it is: $api_k ');</script>";
-            //echo "<script>document.location='signup.php'</script>";
-            die();
-        }else{
-            $_SESSION["error"] = "$sqlquery".mysqli_error($connection);
-            header("Location: signup.php");
-            die();
+            $_SESSION["loggenIn"] = true;
+            $_SESSION["email"] = $email;
+        
+            $response = [
+                "response" => "succesful",
+            ];
+
+            header("Content-Type: application/json");
+            echo json_encode($response);
+        } else {
+            $response = [
+                "response" => "failed",
+            ];
+
+            header("Content-Type: application/json");
+            echo json_encode($response);
         }
     }
+
     mysqli_close($connection);
+?>
