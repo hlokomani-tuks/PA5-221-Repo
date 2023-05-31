@@ -14,13 +14,8 @@
 
     if(!$connection)
     {
-        $response = [
-            "response" => "server_issue",
-        ];
-
         header("HTTP/1.1 500 Internal Server Error");
         header("Content-Type: application/json");
-        echo json_encode($response);
 
         die("Connection failed: " . mysqli_connect_error($connection));
     }
