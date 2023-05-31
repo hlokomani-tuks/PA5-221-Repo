@@ -1,12 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 footer{
     position: bottom;
-    bottom:0;
-    left:0;
-    right:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     background: #839eaa85;
-    height: 100w;
+    height: calc(50vh - 30px); /* Adjust the height as needed */
     width: 100vw;
-    font-family: "Open Sans";
+    font-family: 'Poppins', sans-serif;
     padding-top: 40px;
     color: #fff;
 }
@@ -56,11 +68,11 @@ footer{
 }
 
 .socials a:hover i{
-    color: #b35208;
+    color: rgb(193, 44, 44);
 }
 
 .footer-bottom{
-    background: #839eaa85;
+    background: rgb(193, 44, 44);
     width:100vw;
     padding: 20px 0;
     text-align: center;
