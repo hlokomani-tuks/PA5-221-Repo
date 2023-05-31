@@ -77,7 +77,7 @@
                             <button type="button" class="btn1">Login</button>
                         </div>
                     </div>
-                    <p>Don't have an account? <a href="signup.php">Register here</a></p>
+                    <p>Already have an account? <a href="login.php">Login here</a></p>
                 </form>
             </div>
         </div>
