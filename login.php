@@ -31,35 +31,7 @@
                 <div class="col">
                     Password: <br><input style="width: 465px;" class="input" type="password" name="password" id="password" onkeyup="logIn()">
                 </div>
-            </div>
-
-            <hr style="width: 570px; float: left;">
-            <div class="DataObjectPageLeft row">
-                <div class="col">
-                    Cellphone number: <br><input style="width: 465px;" class="input" type="number" name="number" id="number" onkeyup="logIn()">
-                </div>
-            </div>
-
-            <hr style="width: 570px; float: left;">
-            <div class="DataObjectPageLeft row">
-                <div class="col">
-                    First Name: <br><input style="width: 465px;" class="input" type="text" name="First" id="First" onkeyup="logIn()">
-                </div>
-            </div>
-
-            <hr style="width: 570px; float: left;">
-            <div class="DataObjectPageLeft row">
-                <div class="col">
-                    Middle Initial: <br><input style="width: 465px;" class="input" type="text" name="Middle" id="Middle" onkeyup="logIn()">
-                </div>
-            </div>
-
-            <hr style="width: 570px; float: left;">
-            <div class="DataObjectPageLeft row">
-                <div class="col">
-                    Last Name: <br><input style="width: 465px;" class="input" type="text" name="last" id="last" onkeyup="logIn()">
-                </div>
-            </div>
+	    </div>
 
             <hr style="width: 570px; float: left;">
             <div class="DataObjectPageLeft row">
