@@ -11,7 +11,7 @@
 
    <header>
         <nav>
-            <h1 id="logo"><a href="index.php" style="color: rgb(193, 44, 44)">Vino Venture</a></h1>
+            <h1 id="logo"><a href="index.php" style="color: rgb(193, 44, 44)">Sauvignon Syndicate</a></h1>
             <div class="nav-links">
                 <ul>
                     <li><a href="index.php">Home</a></li>
