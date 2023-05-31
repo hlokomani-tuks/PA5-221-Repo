@@ -72,10 +72,10 @@
         }
 
         //connection to database
-        $servername = "localhost";
-        $username = "root";
-        $db_password = "root";
-        $databasename = "PA5_hashed";
+        $servername = "";
+        $username = "";
+        $db_password = "";
+        $databasename = "";
 
         $connection = mysqli_connect($servername, $username, $db_password, $databasename);
 
