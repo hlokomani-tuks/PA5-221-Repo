@@ -9,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $data = file_get_contents("php://input");
     $decoded = json_decode($data);
 
-    if($data->action == 'get_wines'){
+    if($decoded->type == 'get_wines'){
         $servername = "wheatley.cs.up.ac.za";
         $password = "CEHUZ7KY54OP2QLWN5CWGXUG3MLIDW56";
         $username = "u21488593";
@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             die("Error connecting: " . $conn->connect_error);
         }
 
-        $sql = "SELECT * from Wine";
+        $sql = "SELECT Wine.*, WineType.grape_varieties, WineType.colour, WineType.body, WineType.sweetness, WineType.tannin, Winery.winery_id, Winery.name AS winery_name, Winery.country, Winery.province, Winery.farm, Winery.estate, Winery.rating, Winery.email, Winery.cellphone_number FROM Wine JOIN WineType ON Wine.type_id = WineType.type_id JOIN Winery ON Wine.winery_id = Winery.winery_id";
 
         $result = mysqli_query($conn, $sql);
 
@@ -29,17 +29,37 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $wines = array();
 
             while($row = $result->fetch_assoc()){
-                $name = $row[];
-                $year = $row[];
-                $description = $row[];
-                $foodpair = $row[];
-                $imageurl = $row[];
+                $name = $row['name'];
+                $year = $row['year'];
+                $description = $row['description'];
+                $foodpair = $row['food_pairing'];
+                $imageurl = $row['image_url'];
+                $grape_varieties = $row['grape_varieties'];
+                $colour = $row['colour'];
+                $body = $row['body'];
+                $sweetness = $row['sweetness'];
+                $tannin = $row['tannin'];
+                $winery_name = $row['winery_name'];
+                $country = $row['country'];
+                $province = $row['province'];
+                $farm = $row['farm'];
+                
 
                 $wine = array(
                     'name' => $name,
-                    //
-                    //
-                    //
+                    'year' => $year,
+                    'description' => $description,
+                    'foodpair' => $foodpair,
+                    'image' => $imageurl,
+                    'grape variety' => $grape_varieties,
+                    'colour' => $colour,
+                    'body' => $body,
+                    'sweetness' => $sweetness,
+                    'tannin' => $tannin,
+                    'winery_name' => $winery_name,
+                    'country' => $country,
+                    'province' => $province,
+                    'farm' => $farm
                 );
                 $wines[] = $wine;
             }
@@ -56,5 +76,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         }
         $conn->close();
+    }else{
+        $response = array(
+            'status' => 'error',
+            'timestamp' => time(),
+            'Error: ' => 'There are no wines.'
+        );
+        echo json_encode($response, JSON_PRETTY_PRINT);
+        die();
     }
 }
