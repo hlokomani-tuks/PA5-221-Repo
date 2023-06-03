@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 30, 2023 at 07:14 PM
+-- Generation Time: May 31, 2023 at 11:29 AM
 -- Server version: 10.6.12-MariaDB-0ubuntu0.22.04.1
 -- PHP Version: 8.2.6
 
@@ -67,24 +67,27 @@ CREATE TABLE `User` (
   `last_name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `cellphone_number` varchar(20) NOT NULL
+  `cellphone_number` varchar(20) NOT NULL,
+  `is_manager` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `User`
 --
 
-INSERT INTO `User` (`user_id`, `first_name`, `middle_initial`, `last_name`, `password`, `email`, `cellphone_number`) VALUES
-(10203, 'Robert', 'M', 'Jackson', '$2y$10$vKk65rtqqrOJwKvLo2dICeT17ub0TPt4Ov4OL6IMbt/4qCET9fZnm', 'robert.jackson@yahoo.com', '076-888-9999'),
-(12345, 'John', 'A', 'Doe', '$2y$10$LEJuh01q9OHuP0EAXBiwquzd8V5N25lrr1upICbJSSPTH9o.7HzTi', 'john.doe@gmail.com', '062-123-4567'),
-(13579, 'Mike', 'J', 'Brown', '$2y$10$f2sNKOiJ.BdbkHZqEhWqWe4x1HJm8RnIaPGqUJ0DR4UsxVT2Q3NL2', 'mike.brown@yahoo.com', '062-222-3333'),
-(24680, 'Sarah', 'L', 'Jones', '$2y$10$xL4qyUoCNP/XDgu2mSuBE.uBLBS/BjQRO7kitBtH4Is2CEzHczIV2', 'sarah.jones@gmail.com', '084-555-5555'),
-(43210, 'Lisa', 'E', 'Davis', '$2y$10$bS5SiLuL/tr5Keg2yWXOB.ToWKIeLWXf5NsDJnAermtdsMuT0.bCi', 'lisa.davis@yahoo.com', '082-111-2222'),
-(54321, 'Emily', 'R', 'Johnson', '$2y$10$tce0zDagE/zmae.ecVIPtuG/lfm/4dMU9O3BQnbe5E/sVysn3BGLe', 'emily.johnson@gmail.com', '073-777-8888'),
-(67890, 'Jane', 'M', 'Smith', '$2y$10$tu3d7UELrnaMkn6fV4youO1.FssSUc9HooK/hiCB/AomEO54lCBK.', 'jane.smith@gmail.com', '083-987-6543'),
-(76543, 'Jennifer', 'K', 'Thomas', '$2y$10$brPU6oTIa5mZIUoBAEvtCumGo30lxSqQuH1THU1YHZ7vxh8u/GTZq', 'jennifer.thomas@gmail.com', '063-333-4444'),
-(87654, 'Alex', 'P', 'Miller', '$2y$10$Mi7NBuUTjJKONQtXwrYqY.W5gLhAA.HCBc0edhszEc.7uwYHEA2oS', 'alex.miller@yahoo.com', '083-666-7777'),
-(98765, 'David', 'S', 'Wilson', '$2y$10$U.ltN/D8D/UfJ13rULnte.m73ya7uVPWz41gCf1f.QppX.JNuouvG', 'david.wilson@gmail.com', '084-444-5555');
+INSERT INTO `User` (`user_id`, `first_name`, `middle_initial`, `last_name`, `password`, `email`, `cellphone_number`, `is_manager`) VALUES
+(10203, 'Robert', 'M', 'Jackson', '$2y$10$vKk65rtqqrOJwKvLo2dICeT17ub0TPt4Ov4OL6IMbt/4qCET9fZnm', 'robert.jackson@yahoo.com', '076-888-9999', 0),
+(12345, 'John', 'A', 'Doe', '$2y$10$LEJuh01q9OHuP0EAXBiwquzd8V5N25lrr1upICbJSSPTH9o.7HzTi', 'john.doe@gmail.com', '062-123-4567', 0),
+(13579, 'Mike', 'J', 'Brown', '$2y$10$f2sNKOiJ.BdbkHZqEhWqWe4x1HJm8RnIaPGqUJ0DR4UsxVT2Q3NL2', 'mike.brown@yahoo.com', '062-222-3333', 0),
+(24680, 'Sarah', 'L', 'Jones', '$2y$10$xL4qyUoCNP/XDgu2mSuBE.uBLBS/BjQRO7kitBtH4Is2CEzHczIV2', 'sarah.jones@gmail.com', '084-555-5555', 0),
+(43210, 'Lisa', 'E', 'Davis', '$2y$10$bS5SiLuL/tr5Keg2yWXOB.ToWKIeLWXf5NsDJnAermtdsMuT0.bCi', 'lisa.davis@yahoo.com', '082-111-2222', 0),
+(54321, 'Emily', 'R', 'Johnson', '$2y$10$tce0zDagE/zmae.ecVIPtuG/lfm/4dMU9O3BQnbe5E/sVysn3BGLe', 'emily.johnson@gmail.com', '073-777-8888', 0),
+(67890, 'Jane', 'M', 'Smith', '$2y$10$tu3d7UELrnaMkn6fV4youO1.FssSUc9HooK/hiCB/AomEO54lCBK.', 'jane.smith@gmail.com', '083-987-6543', 0),
+(76543, 'Jennifer', 'K', 'Thomas', '$2y$10$brPU6oTIa5mZIUoBAEvtCumGo30lxSqQuH1THU1YHZ7vxh8u/GTZq', 'jennifer.thomas@gmail.com', '063-333-4444', 0),
+(87654, 'Alex', 'P', 'Miller', '$2y$10$Mi7NBuUTjJKONQtXwrYqY.W5gLhAA.HCBc0edhszEc.7uwYHEA2oS', 'alex.miller@yahoo.com', '083-666-7777', 0),
+(98765, 'David', 'S', 'Wilson', '$2y$10$U.ltN/D8D/UfJ13rULnte.m73ya7uVPWz41gCf1f.QppX.JNuouvG', 'david.wilson@gmail.com', '084-444-5555', 0),
+(98766, 'Ted', 'B', 'Harry', '$2y$10$aEDtzPTh001LuOzuEblOxOfQfPzxl2ilnqG3pVtrxiKDYIQ0CMPua', 'robert@yahoo.com', '098 088 080', 0),
+(98767, 'Ted', 'B', 'Harry', '$2y$10$Q/6A.YrK7UGWenhTGa7rPu.MY2jLFdo3HUqMHRCaF3/7MUQiXLxQG', 'rick@morty.com', '098 088 080', 0);
 
 -- --------------------------------------------------------
 
@@ -266,7 +269,7 @@ ALTER TABLE `Review`
 -- AUTO_INCREMENT for table `User`
 --
 ALTER TABLE `User`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98766;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98768;
 
 --
 -- AUTO_INCREMENT for table `Wine`

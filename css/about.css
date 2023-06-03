@@ -1,33 +1,27 @@
 body {
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    width: 100%;
-    font-family: 'Poppins', sans-serif;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url("../img/ales-maze-z0bACVUDTJM-unsplash.jpg");
-    background-position: center;
-    background-size: cover;
-    position: relative;
-    overflow-x: hidden;
-}
-
-h1 {
-    align-content: center;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+    background-image: url("../img/ales-maze-z0bACVUDTJM-unsplash.jpg");
+  }
+  
+  h1 {
     font-size: 32px;
-    color: #fff;
+    color: #333;
     margin-bottom: 10px;
-}
-
-h2 {
+    text-align: center; /* Center the heading horizontally */
+  }
+  
+  h2 {
     font-size: 24px;
-    align-content: center;
-    color: #fff;
+    color: #555;
     margin-top: 20px;
     margin-bottom: 10px;
-}
-
-p {
-font-size: 16px;
-color: #fff;
-margin-bottom: 20px;
-}
+    text-align: center; /* Center the heading horizontally */
+  }
+  
+  p {
+    font-size: 16px;
+    color: #777;
+    margin-bottom: 20px;
+  }
