@@ -23,7 +23,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if ($decoded->type == 'get_wines') {
 
-        $sql = "SELECT Wine.*, WineType.grape_varieties, WineType.colour, WineType.body, WineType.sweetness, WineType.tannin, Winery.winery_id, Winery.name AS winery_name, Winery.country, Winery.province, Winery.farm, Winery.estate, Winery.rating, Winery.email, Winery.cellphone_number FROM Wine JOIN WineType ON Wine.type_id = WineType.type_id JOIN Winery ON Wine.winery_id = Winery.winery_id";
+        if ($decoded->sort_by == null)
+            $decoded->sort_by = "wine_id";
+
+        if ($decoded->sort_in == null)
+            $decoded->sort_in = "ASC";
+
+        // $sql = "SELECT Wine.*, WineType.grape_varieties, WineType.colour, WineType.body, WineType.sweetness, WineType.tannin, Winery.winery_id, Winery.name AS winery_name, Winery.country, Winery.province, Winery.farm, Winery.estate, Winery.rating, Winery.email, Winery.cellphone_number FROM Wine JOIN WineType ON Wine.type_id = WineType.type_id JOIN Winery ON Wine.winery_id = Winery.winery_id";
+        $sql =
+            "SELECT
+                wine_id,
+                Wine.name,
+                year,
+                description,
+                food_pairing,
+                image_url,
+                user_rating,
+                critic_rating,
+                grape_varieties,
+                Winery.name AS winery_name
+            FROM WineWithReview Wine
+            JOIN WineType
+            ON Wine.type_id = WineType.type_id
+            JOIN Winery
+            ON Wine.winery_id = Winery.winery_id
+            ORDER BY $decoded->sort_by $decoded->sort_in";
 
         $result = mysqli_query($conn, $sql);
 
@@ -31,6 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $wines = array();
 
             while ($row = $result->fetch_assoc()) {
+                /* 
                 $wine_id = $row['wine_id'];
                 $name = $row['name'];
                 $year = $row['year'];
@@ -41,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $colour = $row['colour'];
                 $body = $row['body'];
                 $sweetness = $row['sweetness'];
-                $tannin = $row['tannin'];
+                $tannin = $row['tannin']; 
                 $winery_name = $row['winery_name'];
                 $country = $row['country'];
                 $province = $row['province'];
@@ -64,8 +89,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     'country' => $country,
                     'province' => $province,
                     'farm' => $farm
-                );
-                $wines[] = $wine;
+                ); 
+                */
+
+                $wines[] = [
+                    'wine_id' => $row["wine_id"],
+                    'name' => $row["name"],
+                    'year' => $row["year"],
+                    'image' => $row["image_url"],
+                    'user_rating' => $row["user_rating"],
+                    'critic_rating' => $row["critic_rating"],
+                    'grape_variety' => $row["grape_varieties"],
+                    'winery_name' => $row["winery_name"]
+                ];
             }
 
             $response = array(
@@ -115,6 +151,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ];
 
         echo json_encode($response);
+        $conn->close();
     } else {
         $response = array(
             'status' => 'error',
@@ -123,6 +160,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         );
         echo json_encode($response, JSON_PRETTY_PRINT);
         die();
+        $conn->close();
     }
 }
-?>
