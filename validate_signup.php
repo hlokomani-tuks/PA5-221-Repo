@@ -72,10 +72,10 @@
         }
 
         //connection to database
-        $servername = "";
-        $username = "";
-        $db_password = "";
-        $databasename = "";
+        $servername = "wheatley.cs.up.ac.za";
+        $password = "CEHUZ7KY54OP2QLWN5CWGXUG3MLIDW56";
+        $username = "u21488593";
+        $databasename = "u21488593_PA5";
 
         $connection = mysqli_connect($servername, $username, $db_password, $databasename);
 

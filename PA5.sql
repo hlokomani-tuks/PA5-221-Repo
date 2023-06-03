@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: May 31, 2023 at 11:29 AM
+-- Generation Time: Jun 03, 2023 at 08:19 PM
 -- Server version: 10.6.12-MariaDB-0ubuntu0.22.04.1
 -- PHP Version: 8.2.6
 
@@ -135,7 +135,6 @@ CREATE TABLE `Winery` (
   `province` varchar(255) NOT NULL,
   `farm` varchar(255) NOT NULL,
   `estate` varchar(255) NOT NULL,
-  `rating` float NOT NULL,
   `email` varchar(255) NOT NULL,
   `cellphone_number` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -144,17 +143,17 @@ CREATE TABLE `Winery` (
 -- Dumping data for table `Winery`
 --
 
-INSERT INTO `Winery` (`winery_id`, `name`, `country`, `province`, `farm`, `estate`, `rating`, `email`, `cellphone_number`) VALUES
-(1, 'Domaine de la Romanée-Conti', 'France', 'Burgundy', 'Vosne-Romanée', '', 9.5, 'drc@example.com', '+33 3 80 62 61 08'),
-(2, 'Château Margaux', 'France', 'Bordeaux', 'Margaux', 'Château Margaux', 9, 'chateau.margaux@example.com', '+33 5 57 88 83 83'),
-(3, 'Opus One', 'United States', 'California', 'Oakville', 'Opus One Winery', 8.5, 'info@opusonewinery.com', '+1 707-944-9442'),
-(4, 'Tignanello', 'Italy', 'Tuscany', 'Antinori Estate', 'Tignanello Estate', 9, 'tignanello@antinori.it', '+39 055 23595'),
-(5, 'Screaming Eagle', 'United States', 'California', 'Oakville', 'Screaming Eagle Winery', 9.8, 'welcome@screamingeagle.com', '+1 707-944-0749'),
-(6, 'Penfolds', 'Australia', 'South Australia', 'Magill Estate', 'Penfolds Magill Estate', 8, 'info@penfolds.com', '+61 8 8301 5551'),
-(7, 'Duckhorn Vineyards', 'United States', 'California', 'St. Helena', 'Duckhorn Vineyards', 8.5, 'info@duckhorn.com', '+1 866-367-9945'),
-(8, 'Vega Sicilia', 'Spain', 'Castilla y León', 'Valbuena de Duero', 'Vega Sicilia', 9.2, 'info@vega-sicilia.com', '+34 983 68 10 06'),
-(9, 'Dönnhoff', 'Germany', 'Nahe', 'Oberhausen', 'Hermann Dönnhoff', 9, 'info@doennhoff.com', '+49 6758 775'),
-(10, 'Gaja', 'Italy', 'Piedmont', 'Barbaresco', 'Gaja Winery', 9.3, 'info@gajawines.com', '+39 0173 635111');
+INSERT INTO `Winery` (`winery_id`, `name`, `country`, `province`, `farm`, `estate`, `email`, `cellphone_number`) VALUES
+(1, 'Domaine de la Romanée-Conti', 'France', 'Burgundy', 'Vosne-Romanée', '', 'drc@example.com', '+33 3 80 62 61 08'),
+(2, 'Château Margaux', 'France', 'Bordeaux', 'Margaux', 'Château Margaux', 'chateau.margaux@example.com', '+33 5 57 88 83 83'),
+(3, 'Opus One', 'United States', 'California', 'Oakville', 'Opus One Winery', 'info@opusonewinery.com', '+1 707-944-9442'),
+(4, 'Tignanello', 'Italy', 'Tuscany', 'Antinori Estate', 'Tignanello Estate', 'tignanello@antinori.it', '+39 055 23595'),
+(5, 'Screaming Eagle', 'United States', 'California', 'Oakville', 'Screaming Eagle Winery', 'welcome@screamingeagle.com', '+1 707-944-0749'),
+(6, 'Penfolds', 'Australia', 'South Australia', 'Magill Estate', 'Penfolds Magill Estate', 'info@penfolds.com', '+61 8 8301 5551'),
+(7, 'Duckhorn Vineyards', 'United States', 'California', 'St. Helena', 'Duckhorn Vineyards', 'info@duckhorn.com', '+1 866-367-9945'),
+(8, 'Vega Sicilia', 'Spain', 'Castilla y León', 'Valbuena de Duero', 'Vega Sicilia', 'info@vega-sicilia.com', '+34 983 68 10 06'),
+(9, 'Dönnhoff', 'Germany', 'Nahe', 'Oberhausen', 'Hermann Dönnhoff', 'info@doennhoff.com', '+49 6758 775'),
+(10, 'Gaja', 'Italy', 'Piedmont', 'Barbaresco', 'Gaja Winery', 'info@gajawines.com', '+39 0173 635111');
 
 -- --------------------------------------------------------
 
