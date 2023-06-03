@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $wines = array();
 
             while ($row = $result->fetch_assoc()) {
+                $wine_id = $row['wine_id'];
                 $name = $row['name'];
                 $year = $row['year'];
                 $description = $row['description'];
@@ -48,6 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
                 $wine = array(
+                    'wine_id' => $wine_id,
                     'name' => $name,
                     'year' => $year,
                     'description' => $description,
