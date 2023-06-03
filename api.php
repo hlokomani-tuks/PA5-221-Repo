@@ -70,16 +70,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         while ($row = $result->fetch_assoc()) {
             $wines[] = [
-                "wine_id" => $row["wine_id"],
+                "wine_id" => (int) $row["wine_id"],
                 "name" => $row["name"],
                 "year" => $row["year"],
                 "description" => $row["description"],
                 "food_pairing" => $row["food_pairing"],
                 "image_url" => $row["image_url"],
-                "user_rating" => $row["user_rating"],
-                "user_rating_count" => $row["user_rating_count"],
-                "critic_rating" => $row["critic_rating"],
-                "critic_rating_count" => $row["critic_rating_count"],
+                "user_rating" => (float) $row["user_rating"],
+                "user_rating_count" => (int) $row["user_rating_count"],
+                "critic_rating" => (float) $row["critic_rating"],
+                "critic_rating_count" => (int) $row["critic_rating_count"],
                 "grape_varieties" => $row["grape_varieties"],
                 "colour" => $row["colour"],
                 "body" => $row["body"],
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $conn->close();
     } else if ($decoded->type == 'get_reviews') {
-        $wine_id = $decoded->wine_id;
+        // TODO: Return error when ID does not exist
         $result = $conn->query(
             "SELECT 
                 first_name, 
@@ -154,6 +154,50 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             "status" => "success",
             "timestamp" => time(),
             "data" => $reviews
+        ];
+
+        echo json_encode($response);
+
+        $conn->close();
+    } else if ($decoded->type == "get_wineries") {
+        $result = $conn->query(
+            "SELECT 
+                Winery.*,
+                COALESCE(WineryWithReview.rating, 0.0) rating,
+                COALESCE(WineryWithReview.rating_count, 0) rating_count
+            FROM Winery
+            LEFT JOIN (
+                SELECT
+                    winery_id,
+                    AVG(user_rating) AS rating,
+                    SUM(user_rating_count) AS rating_count
+                FROM WineWithReview
+                GROUP BY winery_id
+            ) WineryWithReview
+            ON Winery.winery_id = WineryWithReview.winery_id"
+        );
+
+        $wineries = [];
+
+        while ($row = $result->fetch_assoc()) {
+            $wineries[] = [
+                "winery_id" => (int) $row["winery_id"],
+                "name" => $row["name"],
+                "country" => $row["country"],
+                "province" => $row["province"],
+                "farm" => $row["farm"],
+                "estate" => $row["estate"],
+                "email" => $row["email"],
+                "cellphone_number" => $row["cellphone_number"],
+                "rating" => (float) $row["rating"],
+                "rating_count" => (int) $row["rating_count"]
+            ];
+        }
+
+        $response = [
+            "status" => "success",
+            "timestamp" => time(),
+            "data" => $wineries
         ];
 
         echo json_encode($response);
