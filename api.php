@@ -76,11 +76,17 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
         }
         $conn->close();
-    }else{
+    }else if($decoded->type == 'get_review'){
+        
+    }
+    
+    
+    
+    else{
         $response = array(
             'status' => 'error',
             'timestamp' => time(),
-            'Error: ' => 'There are no wines.'
+            'Error: ' => 'That endpoint does not exist.'
         );
         echo json_encode($response, JSON_PRETTY_PRINT);
         die();
