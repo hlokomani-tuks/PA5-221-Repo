@@ -96,11 +96,371 @@ a {
     height: 28px;
 }
 
-.category:hover {
-    background-color: rgba(193, 44, 44, 0.7);
-}
-
 .category li{
     padding: 0 10px;
     color: white;
+}
+ /*----- Sort by -----*/
+.select-box {
+    display: flex;
+    width: 130px;
+    flex-direction: column;
+    position: relative;
+}
+
+.selected {
+    background-color: rgb(193, 44, 44);
+    color: #fff;
+    margin-bottom: 6px;
+    position: relative;
+    order: 0;
+    margin-top: 5px;;
+}
+
+.selected::after {
+    content: "";
+    background: url("../img/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: -5px;
+    top: 5px;
+
+    transition: all 0.4s;
+}
+
+.select-box .options-container.active {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.select-box .options-container.active + .selected::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box .options-container {
+    color: white;
+    max-height: 0;
+    width: 100%;
+    opacity:0;
+    transition: all 0.4s;
+    background-color: rgb(193, 44, 44);
+    order: 1;
+    padding-top: 60px;
+    position: absolute;
+}
+
+.select-box .option, .selected {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box .option:hover {
+    background: white;
+    color: black;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.select-box .option .radio {
+    display: none;
+}
+
+/** Brand **/
+.select-box1 {
+    display: flex;
+    width: 130px;
+    flex-direction: column;
+    position: relative;
+}
+
+.selected1 {
+    background-color: rgb(193, 44, 44);
+    color: #fff;
+    margin-bottom: 6px;
+    position: relative;
+    order: 0;
+    margin-top: 5px;;
+}
+
+.selected1::after {
+    content: "";
+    background: url("../img/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: -5px;
+    top: 5px;
+
+    transition: all 0.4s;
+}
+
+.select-box1 .options-container1.active {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.select-box1 .options-container1.active + .selected1::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box1 .options-container1 {
+    color: white;
+    max-height: 0;
+    width: 100%;
+    opacity:0;
+    transition: all 0.4s;
+    background-color: rgb(193, 44, 44);
+    order: 1;
+    padding-top: 60px;
+    position: absolute;
+}
+
+.select-box1 .option1, .selected1 {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box1 .option1:hover {
+    background: white;
+    color: black;
+}
+
+.select-box1 label {
+    cursor: pointer;
+}
+
+.select-box1 .option1 .radio1 {
+    display: none;
+}
+
+/** Style **/
+.select-box2 {
+    display: flex;
+    width: 130px;
+    flex-direction: column;
+    position: relative;
+}
+
+.selected2 {
+    background-color: rgb(193, 44, 44);
+    color: #fff;
+    margin-bottom: 6px;
+    position: relative;
+    order: 0;
+    margin-top: 5px;;
+}
+
+.selected2::after {
+    content: "";
+    background: url("../img/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: -5px;
+    top: 5px;
+
+    transition: all 0.4s;
+}
+
+.select-box2 .options-container2.active {
+    max-height: 180px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.select-box2 .options-container2::-webkit-scrollbar {
+    background: white;
+    width: 8px;
+    height: 7px;
+}
+
+.select-box2 .options-container2::-webkit-scrollbar-thumb {
+    background-color:rgb(193, 44, 44);
+}
+
+.select-box2 .options-container2.active + .selected2::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box2 .options-container2 {
+    color: white;
+    max-height: 0;
+    width: 100%;
+    opacity:0;
+    transition: all 0.4s;
+    background-color: rgb(193, 44, 44);
+    order: 1;
+    padding-top: 60px;
+    position: absolute;
+}
+
+.select-box2 .option2, .selected2 {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box2 .option2:hover {
+    background: white;
+    color: black;
+}
+
+.select-box2 label {
+    cursor: pointer;
+}
+
+.select-box2 .option2 .radio2 {
+    display: none;
+}
+
+/** Variety **/
+.select-box3 {
+    display: flex;
+    width: 130px;
+    flex-direction: column;
+    position: relative;
+}
+
+.selected3 {
+    background-color: rgb(193, 44, 44);
+    color: #fff;
+    margin-bottom: 6px;
+    position: relative;
+    order: 0;
+    margin-top: 5px;;
+}
+
+.selected3::after {
+    content: "";
+    background: url("../img/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: -5px;
+    top: 5px;
+
+    transition: all 0.4s;
+}
+
+.select-box3 .options-container3.active {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.select-box3 .options-container3.active + .selected3::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box3 .options-container3 {
+    color: white;
+    max-height: 0;
+    width: 100%;
+    opacity:0;
+    transition: all 0.4s;
+    background-color: rgb(193, 44, 44);
+    order: 1;
+    padding-top: 60px;
+    position: absolute;
+}
+
+.select-box3 .option3, .selected3 {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box3 .option3:hover {
+    background: white;
+    color: black;
+}
+
+.select-box3 label {
+    cursor: pointer;
+}
+
+.select-box3 .option3 .radio3 {
+    display: none;
+}
+/** Variety **/
+.select-box4 {
+    display: flex;
+    width: 130px;
+    flex-direction: column;
+    position: relative;
+}
+
+.selected4 {
+    background-color: rgb(193, 44, 44);
+    color: #fff;
+    margin-bottom: 6px;
+    position: relative;
+    order: 0;
+    margin-top: 5px;;
+}
+
+.selected4::after {
+    content: "";
+    background: url("../img/arrow-down.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 32px;
+    right: -5px;
+    top: 5px;
+
+    transition: all 0.4s;
+}
+
+.select-box4 .options-container4.active {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.select-box4 .options-container4.active + .selected4::after {
+    transform: rotateX(180deg);
+    top: -6px;
+}
+
+.select-box4 .options-container4 {
+    color: white;
+    max-height: 0;
+    width: 100%;
+    opacity:0;
+    transition: all 0.4s;
+    background-color: rgb(193, 44, 44);
+    order: 1;
+    padding-top: 60px;
+    position: absolute;
+}
+
+.select-box4 .option4, .selected4 {
+    padding: 12px 24px;
+    cursor: pointer;
+}
+
+.select-box4 .option4:hover {
+    background: white;
+    color: black;
+}
+
+.select-box4 label {
+    cursor: pointer;
+}
+
+.select-box4 .option4 .radio4 {
+    display: none;
 }
