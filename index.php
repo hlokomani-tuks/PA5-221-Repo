@@ -12,12 +12,12 @@
         <div class="header-text">
             <h1>The Best Wine Catalogue</h1>
             <p>Uncork and discover! The ultimate wine journey begins here. <br> Explore a curated collected of exquisite wines from renowned vineyards across the globe. <br> Cheers to indulging in the art of wine appreciation.</p>
-            <div class="search-bar">
+            <!--<div class="search-bar">
                 <form>
                     <input type="search" placeholder="" id="search-wine">
                     <button type="submit">Search</button>
                 </form>
-            </div>
+            </div>-->
         </div>
     </div>
 
