@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/product.css?">
+    <link rel="stylesheet" href="css/product.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
     <title>Product</title>
 </head>
@@ -40,9 +40,8 @@
             </div>
             <div class="details">
                 <p class="description">This wine is a nice and tasty wine that smells good too. It was made in a vineyard and belongs to a certain winery somewhere in the world</p>
-                <div class="btn">
-                <button class="review-btn">Review</button>
-            </div>
+                <div class="review-section"></div>
+                <div class="btn"><button class="review-btn">Review</button></div>
                 <h5 class="region">Winery</h5>
                 <p>Vino Winery</p>
                 <h5 class="region">Variety</h5>
