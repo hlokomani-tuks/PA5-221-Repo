@@ -49,8 +49,8 @@ function logIn(){
     var SubmitButton = document.getElementById("submit");
     SubmitButton.style.display = "none";
 
-    var emb = isValidEmail(document.getElementById("email").value);
-    var pwb = isValidPassword(document.getElementById("password").value);
+    var emb = validateEmail(document.getElementById("email").value);
+    var pwb = validatePassword(document.getElementById("password").value);
 
     if(!emb) {
         allValid = false;
@@ -73,17 +73,17 @@ function logIn(){
     else SubmitButton.style.display = "none";
 }
 
-function isValidEmail(email){
+function validateEmail(email){
     var validEmailExp = /^[A-Za-z0-9._%+-]{1,64}@(?:[A-Za-z0-9-]{1,63}\.){1,125}[A-Za-z]{2,63}/;
     return validEmailExp.test(email);
 }
 
-function isValidPassword(password){
+function validatePassword(password){
     var validPasswordExp = /(?=(((\w)*([A-Z])+(\w)*(\W)+(\w)*([0-9])+)|((\w)*(\W)+(\w)*([0-9])(\w)*([A-Z])+)|((\w)*([0-9])+(\w)*([A-Z])+(\w)*(\W)+)|((\w)*([A-Z])+(\w)*([0-9])+(\w)*(\W)+)|((\w)*([0-9])+(\w)*(\W)+(\w)*([A-Z])+)|((\w)*(\W)+(\w)*([A-Z])+(\w)*([0-9])+)))(?=.{8,})/;
     return validPasswordExp.test(password);
 }
 
-function isValidInput(input){
+function validateInput(input){
     var validInputExp = /.{1,}/;
     return validInputExp.test(input);
 }
