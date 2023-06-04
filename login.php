@@ -1,6 +1,4 @@
 
-<?php include 'config.php';?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,33 +17,35 @@
             <div class="DataObjectPageLeft row form">
                 <h2>Login</h2>
             </div>
-            <hr style="width: 570px; float: left;">
+            <!-- <hr style="width: 570px; float: left;"> -->
             <div class="DataObjectPageLeft row">
                 <div class="col">
-                    Email: <br><input style="width: 465px;" class="input" type="email" name="email" id="email" onkeyup="logIn()">
+                    Email: <br><br><input style="width: 465px;" class="input" type="email" name="email" id="email" onkeyup="logIn()">
                 </div>
             </div>
-
-            <hr style="width: 570px; float: left;">
+            <br>
+            <!-- <hr style="width: 570px; float: left;"> -->
             <div class="DataObjectPageLeft row">
                 <div class="col">
-                    Password: <br><input style="width: 465px;" class="input" type="password" name="password" id="password" onkeyup="logIn()">
+                    Password: <br><br><input style="width: 465px;" class="input" type="password" name="password" id="password" onkeyup="logIn()">
                 </div>
 	    </div>
 
-            <hr style="width: 570px; float: left;">
+            <br>
+            <!-- <hr style="width: 570px; float: left;"> -->
             <div class="DataObjectPageLeft row">
                 <div class="col">
-                    <button class="input" type="submit" id="submit">Submit</button>
+                    <button type="submit" id="submit">Submit</button>
                 </div>
                 <div class="col">
                     <p id="error"></p>
                 </div>
             </div>
 
-            <hr style="width: 570px; float: left;">
+            <!-- <hr style="width: 570px; float: left;"> -->
             <div class="DataObjectPageLeft row">
                 <div class="col">
+                    <br>
                     <p style="margin-top: 2px; margin-bottom: 2px;"><a style="color: var(--highlight-color)" href="signup.php">Don't have an account, SignUp</a></p>
                 </div>
             </div>
