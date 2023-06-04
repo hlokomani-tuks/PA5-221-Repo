@@ -11,6 +11,7 @@
         $email = stripslashes(htmlspecialchars(trim($_POST['email'])));
         $password = stripslashes(htmlspecialchars(trim($_POST['password'])));
         $cellphone = stripslashes(htmlspecialchars(trim($_POST['cellphone'])));
+        $is_manager = (int) stripslashes(htmlspecialchars(trim($_POST['is_manager'])));
         
         //check for empty fields
         if (
@@ -105,13 +106,14 @@
         $h_password = password_hash($password, PASSWORD_DEFAULT);
 
         //inserting new user into the database
-        $sql2 = "INSERT INTO User (first_name, middle_initial, last_name, password, email, cellphone_number) 
-             VALUES ('$first_name', '$middle_initial', '$last_name', '$h_password', '$email', '$cellphone')";
+        $sql2 = "INSERT INTO User (first_name, middle_initial, last_name, password, email, cellphone_number, is_manager) 
+             VALUES ('$first_name', '$middle_initial', '$last_name', '$h_password', '$email', '$cellphone', '$is_manager')";
 
         if(mysqli_query($connection, $sql2))
         {
-            $_SESSION["loggenIn"] = true;
-            $_SESSION["email"] = $email;
+            $_SESSION["logged_in"] = true;
+            $_SESSION["user_id"] = (int) $connection->insert_id;
+            $_SESSION["is_manager"] = (bool) $is_manager;
         
             $response = [
                 "response" => "succesful",
