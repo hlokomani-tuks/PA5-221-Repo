@@ -15,7 +15,7 @@
             <div class="login-form">
                 <h1>Create An Account</h1>
                 <p>Welcome, dear wine enthusiast!</p>
-                <form id="signup-form" method="post" action="">
+                <form id="signup-form" method="post" action="validate-signup.php">
                     <div class="form-group">
                        <div class="col-lg-7">
                             <span></span>
@@ -69,12 +69,16 @@
                         </div>
                     </div>
                     <div class="form-group form-check">
-                        <input class="form-check-input" type="checkbox" name="" id="check">
+                        <input class="form-check-input" type="radio" name="user-type" id="critic">
                         <label class="form-check-label" for="check">Are you a critic?</label>
+                    </div>
+                    <div class="form-group form-check">
+                        <input class="form-check-input" type="radio" name="user-type" id="manager">
+                        <label class="form-check-label" for="check">Are you winery manager?</label>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-7">
-                            <button type="button" class="btn1">Login</button>
+                            <button type="submit" class="btn1">Login</button>
                         </div>
                     </div>
                     <p>Already have an account? <a href="login.php">Login here</a></p>

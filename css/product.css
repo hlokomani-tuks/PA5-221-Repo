@@ -70,6 +70,7 @@ img:hover {
 
 h1 {
     color: rgb(193, 44, 44);
+    margin-bottom: 4px;
 }
 
 p {
@@ -78,6 +79,9 @@ p {
     line-height: 20px;
     padding: 0;
     margin: 0;
+}
+h3 {
+    padding-top: 5px;
 }
 
 h5 {
@@ -95,11 +99,23 @@ h5 {
     padding-top: 10.5px;
 }
 
+.info {
+    padding-bottom: 14px;
+}
+
 .review-section {
+    margin-top: 10%;
+    padding: 0;
+}
+
+.review-section input{
     width: 100%;
     height: 100px;
-    background-color: #837d7c;
     border: 1px solid #837d7c;
+}
+
+.review-section input[type="text"] {
+    padding-left: 6px;
 }
 
 .review-btn {
@@ -125,5 +141,5 @@ h5 {
 }
 
 .checked {
-    color: red;
+    color: orange;
 }

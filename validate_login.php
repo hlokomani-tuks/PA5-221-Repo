@@ -1,25 +1,14 @@
 <?php
+
+    require_once("backend_config.php");
+    
     session_start();
     // $passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";\
 
     $email = stripslashes(htmlspecialchars(trim($_POST['email'])));
     $password = stripslashes(htmlspecialchars(trim($_POST['password'])));
 
-    // Connection to database
-    $servername = "";
-    $username = "";
-    $db_password = "";
-    $databasename = "";
-
-    $connection = new mysqli($servername, $username, $db_password, $databasename);
-
-    if(!$connection)
-    {
-        header("HTTP/1.1 500 Internal Server Error");
-        header("Content-Type: application/json");
-
-        die("Connection failed: " . mysqli_connect_error($connection));
-    }
+    $connection = Database::getConnection();
 
     $result = $connection->query("SELECT user_id, password, is_manager FROM User WHERE email = '$email'");
 

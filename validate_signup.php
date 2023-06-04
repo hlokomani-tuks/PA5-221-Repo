@@ -1,4 +1,7 @@
 <?php
+    
+    require_once("backend_config.php");
+
     session_start();
 
     $passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
@@ -72,21 +75,7 @@
             die();
         }
 
-        //connection to database
-        $servername = "wheatley.cs.up.ac.za";
-        $password = "CEHUZ7KY54OP2QLWN5CWGXUG3MLIDW56";
-        $username = "u21488593";
-        $databasename = "u21488593_PA5";
-
-        $connection = mysqli_connect($servername, $username, $db_password, $databasename);
-
-        if(mysqli_connect_errno())
-        {
-            header("HTTP/1.1 500 Internal Server Error");
-            header("Content-Type: application/json");
-
-            die("Connection failed: " . mysqli_connect_error($connection));
-        }
+        $connection = Database::getConnection();
 
         $sql = "SELECT email FROM User WHERE email = '$email'";
         $result = mysqli_query($connection, $sql);
@@ -100,6 +89,7 @@
             header("Content-Type: application/json");
             echo json_encode($response);
 
+            $connection->close();
             die();
         }
 
