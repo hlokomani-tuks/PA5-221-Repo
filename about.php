@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+    require_once("header.php");
+?>
+
 <html>
 <head>
     <title>About Us</title>
@@ -38,5 +41,6 @@
             </div>
         </section>
     </div>
+    <?php require_once("footer.php");?>
 </body>
 </html>

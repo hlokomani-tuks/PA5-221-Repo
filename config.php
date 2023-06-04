@@ -25,7 +25,7 @@
         }
 
         public function __construct($servername, $username, $password, $database) {
-            $this->servername = $servername;
+            $this->server = $server;
             $this->username = $username;
             $this->password = $password;
             $this->database = $database;
@@ -58,7 +58,7 @@
     }
 
     class PA5{
-        public static string $_servername = "localhost";
+        public static string $_server = "localhost";
         public static string $_username = "PA5";
         public static string $_password = "admin";
         public static string $_database = "db";
@@ -67,7 +67,7 @@
 
         public static function instance(): ?Database
         {
-            return Database::instance(PA5::$_servername, PA5::$_username, PA5::$_password, PA5::$_database);
+            return Database::instance(PA5::$_server, PA5::$_username, PA5::$_password, PA5::$_database);
         }
 
         public static function conn(): ?PA5
@@ -78,7 +78,7 @@
         }
 
         public function __construct() {
-            $this->db = new Database(PA5::$_servername, PA5::$_username, PA5::$_password, PA5::$_database);
+            $this->db = new Database(PA5::$_server, PA5::$_username, PA5::$_password, PA5::$_database);
         }
 
         public function __destruct() {

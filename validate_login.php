@@ -1,12 +1,14 @@
 <?php
 
     require_once("backend_config.php");
-    
-    session_start();
-    // $passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";\
 
-    $email = stripslashes(htmlspecialchars(trim($_POST['email'])));
-    $password = stripslashes(htmlspecialchars(trim($_POST['password'])));
+    session_start();
+
+    $data = file_get_contents("php://input");
+    $decoded = json_decode($data);
+
+    $email = stripslashes(htmlspecialchars(trim($decoded->email)));
+    $password = stripslashes(htmlspecialchars(trim($decoded->password)));
 
     $connection = Database::getConnection();
 
