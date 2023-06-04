@@ -203,6 +203,70 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         echo json_encode($response);
 
         $conn->close();
+    } else if ($decoded->type == "add_review") {
+        if (!isset($_SESSION['logged_in'])) {
+            $response = [
+                'status' => 'error',
+                'timestamp' => time(),
+                'error' => 'User must be signed in to add review'
+            ];
+
+            echo json_encode($response);
+
+            $conn->close();
+            exit();
+        }
+
+        $user_id = $_SESSION['user_id'];
+        $wine_id = $decoded->wine_id;
+        $rating = $decoded->rating;
+        $comment = $decoded->comment;
+
+        // TODO: Add to Review table
+
+        $response = [
+            'status' => 'success',
+            'timestamp' => time()
+        ];
+
+        echo json_encode($response);
+        $conn->close();
+    } else if ($decoded->type == "add_wine") {
+        if (!isset($_SESSION['logged_in'])) {
+            $response = [
+                'status' => 'error',
+                'timestamp' => time(),
+                'error' => 'User must be signed in to add a wine'
+            ];
+
+            echo json_encode($response);
+
+            $conn->close();
+            exit();
+        }
+
+        if (!$_SESSION['is_manager']) {
+            $response = [
+                'status' => 'error',
+                'timestamp' => time(),
+                'error' => 'User must be a manager to add a wine'
+            ];
+
+            echo json_encode($response);
+
+            $conn->close();
+            exit();
+        }
+
+        // TODO: Add to Wine table
+
+        $response = [
+            'status' => 'success',
+            'timestamp' => time()
+        ];
+
+        echo json_encode($response);
+        $conn->close();
     } else {
         $response = array(
             'status' => 'error',
