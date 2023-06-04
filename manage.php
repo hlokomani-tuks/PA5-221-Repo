@@ -44,22 +44,35 @@
     <div class="catalogue">
         <div class="add">
             <h1>Winery Name's Wines </h1>
-            <button type="submit">Add Wine  <i class="fa fa-plus"></i></button>
+            <button type="submit" onclick="openPopup()">Add Wine  <i class="fa fa-plus"></i></button>
         </div>
         <div class="wines">
 
         </div>
     </div>
-    <div class="popup">
+    <div class="popup" id="popup">
         <div class="elements">
             <h2>New Wine</h2>
             <div class="attributes">
-                <label for="name">Name</label>
-                <input type="text" name="name" id="name" placeholder="Name">
+                <form action="" method="">
+                    <input type="text" name="name" id="name" placeholder="Name">
+                </form>
             </div>
         </div>
-        <button>Add</button>
+        <button onclick="closePopup()">Add</button>
     </div>
 
+    <script>
+        const popup = document.getElementById('popup');
+
+        function openPopup() {
+            popup.classList.add('open-popup');
+        }
+
+        function closePopup() {
+            popup.classList.remove('open-popup');
+        }
+
+    </script>
     </body>
 </html>

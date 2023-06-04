@@ -84,3 +84,41 @@ h3 {
 .catalogue i {
     color: black;
 }
+
+.popup {
+    width: 70%;
+    background: white;
+    border-radius: 6px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -90%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    visibility: hidden;
+    box-shadow: 0 4px 0 8px rgba(0,0,0,0.2 ), 0 6px 20px 0 rgba(0,0,0,0.19);
+
+    transition: transform 0.4s, top 0.4s;
+}
+
+.open-popup {
+    visibility: visible;
+    top: 50%;
+    transform: translate(-50%, -90%) scale(1);
+}
+
+.elements {
+    padding-bottom: 8px;
+}
+
+.popup button {
+    background: rgb(193, 44, 44);
+    height: 43px;
+    padding: 11px 20px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    color: white;
+    cursor: pointer;
+}
+
