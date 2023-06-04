@@ -90,7 +90,3 @@ function dropdown4() {
         });
     });
 }
-
-function pageSetup() {
-    
-}

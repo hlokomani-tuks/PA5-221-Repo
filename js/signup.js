@@ -33,6 +33,20 @@ function validateSurname() {
     }
 }
 
+function validateCellNo() {
+    var cellNo = document.getElementById("cellno").value;
+    var regxCellNo = /^(\d){10}$/;
+    var errorMsg = document.getElementById("cellno-error");
+
+    if(cellNo.match(regxCellNo)) {
+        errorMsg.innerHTML = '<i class="fas fa-check-circle"></i>';
+    }
+
+    else {
+        errorMsg.innerHTML = '<i class="fa fa-times-circle"></i>';;
+    }
+}
+
 function validateEmail() {
     var email = document.getElementById("email").value;
     // [(username) @ (domain) . (extension)] (.extension)
