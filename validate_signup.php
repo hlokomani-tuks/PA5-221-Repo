@@ -7,14 +7,17 @@
     $passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
 
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
+        $data = file_get_contents("php://input");
+        $decoded = json_decode($data);
+
         //clean up the data, preventing injection
-        $first_name = stripslashes(htmlspecialchars(trim($_POST['first_name'])));
-        $middle_initial = stripslashes(htmlspecialchars(trim($_POST['middle_initial'])));
-        $last_name = stripslashes(htmlspecialchars(trim($_POST['last_name'])));
-        $email = stripslashes(htmlspecialchars(trim($_POST['email'])));
-        $password = stripslashes(htmlspecialchars(trim($_POST['password'])));
-        $cellphone = stripslashes(htmlspecialchars(trim($_POST['cellphone'])));
-        $is_manager = (int) stripslashes(htmlspecialchars(trim($_POST['is_manager'])));
+        $first_name = stripslashes(htmlspecialchars(trim($decoded->first_name)));
+        $middle_initial = stripslashes(htmlspecialchars(trim($decoded->middle_initial)));
+        $last_name = stripslashes(htmlspecialchars(trim($decoded->last_name)));
+        $email = stripslashes(htmlspecialchars(trim($decoded->email)));
+        $password = stripslashes(htmlspecialchars(trim($decoded->password)));
+        $cellphone = stripslashes(htmlspecialchars(trim($decoded->cellphone)));
+        $is_manager = (int) stripslashes(htmlspecialchars(trim($decoded->is_manager)));
         
         //check for empty fields
         if (
