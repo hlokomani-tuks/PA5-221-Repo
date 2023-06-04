@@ -15,7 +15,7 @@
             <div class="login-form">
                 <h1>Create An Account</h1>
                 <p>Welcome, dear wine enthusiast!</p>
-                <form id="signup-form" method="post" action="validate-signup.php">
+                <form id="signup-form" method="post" action="validate_signup.php">
                     <div class="form-group">
                        <div class="col-lg-7">
                             <span></span>
