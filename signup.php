@@ -15,18 +15,18 @@
             <div class="login-form">
                 <h1>Create An Account</h1>
                 <p>Welcome, dear wine enthusiast!</p>
-                <form id="signup-form" method="post" action="validate-signup.php">
+                <form id="signup-form" method="post" action="validate_signup.php">
                     <div class="form-group">
                        <div class="col-lg-7">
                             <span></span>
                             <span class="error" id="name-error"></span>
-                            <label class="required" for="">Name <span class="asterisk">*</span></label>
+                            <label class="required" for="name">Name <span class="asterisk">*</span></label>
                             <input class="form-control required" type="text" id="name" onkeyup="validateName()" required>
                        </div>
                     </div>
                     <div class="form-group">
                        <div class="col-lg-7">
-                            <label class="required" for="">Middle Initial</label>
+                            <label class="required" for="middle-initial">Middle Initial</label>
                             <input class="form-control required" type="text" id="middle-initial" >
                        </div>
                     </div>
@@ -34,7 +34,7 @@
                         <div class="col-lg-7">
                             <span></span>
                             <span class="error" id="surname-error"></span>
-                            <label class="required" for="">Surname <span class="asterisk">*</span></label>
+                            <label class="required" for="surname">Surname <span class="asterisk">*</span></label>
                             <input class="form-control" type="text" id="surname" onkeyup="validateSurname()"  required>
                         </div>
                     </div>
@@ -48,15 +48,17 @@
                     </div>
                     <div class="form-group">
                        <div class="col-lg-7">
-                       <label class="required" for="">Cellphone Number</label>
-                            <input class="form-control" type="" id="cellno">
+                            <span></span>
+                            <span class="error" id="cellno-error"></span>
+                            <label class="required" for="cellno">Cellphone Number <span class="asterisk">*</span></label>
+                            <input class="form-control" type="" id="cellno" onkeyup="validateCellNo()">
                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-7">
                             <span></span>
-                            <span class="error" id="password-error"></span>
-                            <label class="required" for="">Password <span class="asterisk">*</span></label>
+                            <span class="error" id="cellno-error"></span>
+                            <label class="required" for="password">Password <span class="asterisk">*</span></label>
                             <input class="form-control" type="password" id="password" onkeyup="validatePassword()" required>
                         </div>
                     </div>
@@ -64,7 +66,7 @@
                         <div class="col-lg-7">
                             <span></span>
                             <span class="error" id="confirm-password-error"></span>
-                            <label class="required" for="">Confirm Password <span class="asterisk">*</span></label>
+                            <label class="required" for="confirm-password">Confirm Password <span class="asterisk">*</span></label>
                             <input class="form-control" type="confirm-password" id="confirm-password" onkeyup="confirmPassword()" required>
                         </div>
                     </div>
