@@ -2,7 +2,12 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Poppins', sans-serif;
-    overflow-x: hidden;
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url("../img/berries-bg.jpg");
+    background-position: center;
+    background-size: cover;
+   
 }
 
 li {
@@ -11,4 +16,107 @@ li {
 
 a {
     text-decoration: none;
+}
+
+main {
+    padding-top: 50px;
+    background: #EBEBEB;
+}
+
+hr {
+    background: #E1E1e1;
+}
+
+.container {
+    max-width: 75%;
+    margin: auto;
+    height: 100vh;
+    margin-top: 5%;
+    background: white;
+    box-shadow: 5px 5px 10px 3px rgba(0,0,0, 0.3);
+}
+
+.main-img {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    cursor: pointer;
+    transition: 0.5s;
+    height: 300px;
+    width: 300px;
+    padding-top: 50px;;
+}
+
+img:hover {
+    transform: translateX(10px);
+    transform: scale(1.2);
+}
+
+.left, .right {
+    width: 50%;
+    padding: 30px; 
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right {
+    padding: 50px 100px 50px 50px;
+}
+
+h1 {
+    color: rgb(193, 44, 44);
+}
+
+p {
+    color: #837d7c;
+    margin: 20px 0 50px 0;
+    line-height: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+h5 {
+    font-size: 1.2em;
+    font-weight: 700;
+    padding: 0;
+}
+
+.details span {
+    font-size: 0.8em;
+    padding: 0;
+}
+
+.details-left {
+    padding-top: 10.5px;
+}
+
+.review-btn {
+    background: rgb(193, 44, 44);
+    height: 43px;
+    margin-top: 10%;
+    padding: 11px 20px;
+    border: none;
+    outline: none;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+}
+
+.review-btn:hover {
+    color: black;
+    border: 1px solid black;
+    background: white;
+}
+
+.rating {
+    padding: 13px 0 25px 0;
+}
+
+.checked {
+    color: orange;
 }
