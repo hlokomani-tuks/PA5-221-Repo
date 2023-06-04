@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+<?php
+    require_once("header.php");
+?>
+
 <html>
 <head>
     <title>Contact Us - Sauvignon Syndicate</title>
@@ -62,5 +65,6 @@
             </div>
         </div>
     </section>
+    <?php require_once("footer.php");?>
 </body>
 </html>
