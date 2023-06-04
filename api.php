@@ -1,5 +1,7 @@
 <?php
 
+require_once("backend_config.php");
+
 session_start();
 
 header("Content-Type: application/json");
@@ -9,17 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $data = file_get_contents("php://input");
     $decoded = json_decode($data);
 
-    $servername = "wheatley.cs.up.ac.za";
-    $password = "CEHUZ7KY54OP2QLWN5CWGXUG3MLIDW56";
-    $username = "u21488593";
-    $databasename = "u21488593_PA5";
-
-    $conn = mysqli_connect($servername, $username, $password, $databasename);
-
-    if ($conn->connect_error) {
-        header("HTTP/1.1 500 Internal Server Error");
-        die("Error connecting: " . $conn->connect_error);
-    }
+    $conn = Database::getConnection();
 
     if ($decoded->type == 'get_wines') {
 
