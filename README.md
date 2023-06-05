@@ -6,7 +6,7 @@ Our task was to create a web app that allowed tourists who are visiting South Af
 to explore the rich and vast wine landscapes that this country has to offer.\
 More on the functional requirements below.
 ******************************************************************
-                Group Contributors:
+## Group Contributors:
 Ms Zandile Modise - \
 Ms Asakundwi Siphuma - u21556416\
 Mr Aidan Govender - \
