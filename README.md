@@ -26,7 +26,7 @@ Upon opening it on your localhost, you will be greeted with a home page that
 shows a catalog of all the current wines on display. A user is able to sort
 and filter the wines to find exactly what they are looking for.
 
-                        Signing up:
+                Signing up:
 
 A user can simply browse the sight unregistered, but in order to interact and
 use the features they must be logged in. In order to log in, a user must create an
@@ -44,19 +44,19 @@ A wine manager has a special set of functions. They have the ability to manage w
 for specific wineries. They would also need to go through a verification process, but
 for the purposes of this practical assignment let us assume this process is followed.
 
-                        Logging in:
+                Logging in:
                         
 Once registered, a user must then log in using the details they used when registering their account.
 They will be prompted to enter their email and their password. Once logged in, they have the
 capability of leaving a review on a wine.
 If a user is not registered, an error will be displayed.
 
-                        Reviewing a wine:
+                Reviewing a wine:
                         
 If a user would like to review a wine, they can click on the wine they'd like to review from the
 home page. Then there will be a textbox together with a button underneath it to submit the review.
 If you are logged in and submit the review, a success message will be shown and you can 
 continue browsing thereafter.
 
-                        Wine management:
-                      
+                Wine management:
+
