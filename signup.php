@@ -20,22 +20,36 @@
                        <div class="col-lg-7">
                             <span></span>
                             <span class="error" id="name-error"></span>
+
                             <label class="required" for="">Name <span class="asterisk">*</span></label>
                             <input class="form-control required" type="text" id="name" name="first_name" onkeyup="validateName()"  required>
+
+                            <label class="required" for="name">Name <span class="asterisk">*</span></label>
+                            <input class="form-control required" type="text" id="name" onkeyup="validateName()" required>
+
                        </div>
                     </div>
                     <div class="form-group">
                        <div class="col-lg-7">
+
                             <label class="required" for="">Middle Initial</label>
                             <input class="form-control required" type="text" id="middle-initial" name="middle_initial" >
-                       </div>
+
+                            <label class="required" for="middle-initial">Middle Initial</label>
+                            <input class="form-control required" type="text" id="middle-initial" >
+                    </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-7">
                             <span></span>
                             <span class="error" id="surname-error"></span>
+
                             <label class="required" for="">Surname <span class="asterisk">*</span></label>
                             <input class="form-control" type="text" id="surname"  name="last_name" onkeyup="validateSurname()" required>
+
+                            <label class="required" for="surname">Surname <span class="asterisk">*</span></label>
+                            <input class="form-control" type="text" id="surname" onkeyup="validateSurname()"  required>
+
                         </div>
                     </div>
                     <div class="form-group">
@@ -48,24 +62,42 @@
                     </div>
                     <div class="form-group">
                        <div class="col-lg-7">
+
                        <label class="required" for="">Cellphone Number</label>
                             <input class="form-control" type="cellphone_number" name="cellphone_number" id="cellno">
+
+                            <span></span>
+                            <span class="error" id="cellno-error"></span>
+                            <label class="required" for="cellno">Cellphone Number <span class="asterisk">*</span></label>
+                            <input class="form-control" type="" id="cellno" onkeyup="validateCellNo()">
+
                        </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-7">
                             <span></span>
+
                             <span class="error" id="password-error"></span>
                             <label class="required" for="">Password <span class="asterisk">*</span></label>
                             <input class="form-control" type="password" name="password" id="password" onkeyup="validatePassword()"  required>
+
+                            <span class="error" id="cellno-error"></span>
+                            <label class="required" for="password">Password <span class="asterisk">*</span></label>
+                            <input class="form-control" type="password" id="password" onkeyup="validatePassword()" required>
+
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-7">
                             <span></span>
                             <span class="error" id="confirm-password-error"></span>
+
                             <label class="required" for="">Confirm Password <span class="asterisk">*</span></label>
                             <input class="form-control" type="confirm_password" id="confirm-password"  onkeyup="confirmPassword()" required>
+
+                            <label class="required" for="confirm-password">Confirm Password <span class="asterisk">*</span></label>
+                            <input class="form-control" type="confirm-password" id="confirm-password" onkeyup="confirmPassword()" required>
+
                         </div>
                     </div>
                     <div class="form-group form-check">

@@ -3,11 +3,11 @@ function signUp(){
     var SubmitButton = document.getElementById("submit");
     SubmitButton.style.display = "none";
 
-    var fnb = isValidInput(document.getElementById("fname").value);
-    var lnb = isValidInput(document.getElementById("lname").value);
-    var unb = isValidInput(document.getElementById("uname").value);
-    var emb = isValidEmail(document.getElementById("email").value);
-    var pwb = isValidPassword(document.getElementById("password").value);
+    var fnb = validateInput(document.getElementById("fname").value);
+    var lnb = validateInput(document.getElementById("lname").value);
+    var unb = validateInput(document.getElementById("uname").value);
+    var emb = validateEmail(document.getElementById("email").value);
+    var pwb = validatePassword(document.getElementById("password").value);
 
     if(!fnb){
         allValid = false;
@@ -71,6 +71,41 @@ function logIn(){
 
     if(allValid) SubmitButton.style.display = "";
     else SubmitButton.style.display = "none";
+    
+    if(allValid) SubmitButton.style.display = "";
+    else SubmitButton.style.display = "none";
+
+    let headersList = {
+        "Content-Type": "application/json"
+    }
+    
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    
+    let bodyContent = JSON.stringify({
+        "email": email,
+        "password": password
+    });
+    
+    let response = await fetch("http://127.0.0.1/validate_login.php", { 
+        method: "POST",
+        body: bodyContent,
+        headers: headersList
+    });
+    
+    
+    if(response.ok)
+    {
+        let data = await response.text();
+        console.log(data);
+        window.location.href = "index.php";
+    }
+    else
+    {
+        let errorData = await response.text();
+        console.log("Not allowed to login. Error:", errorData);
+
+    }
 }
 
 function validateEmail(email){
