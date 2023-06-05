@@ -52,10 +52,44 @@
     </div>
     <div class="popup" id="popup">
         <div class="elements">
-            <h2>New Wine</h2>
             <div class="attributes">
-                <form action="" method="">
-                    <input type="text" name="name" id="name" placeholder="Name">
+                <div class="contactForm">
+                    <form action="" method="">
+                        <h2>Adding to a catalogue</h2>
+                        <div class="inputBox">
+                            <input type="text" id="name" name="name" required="required">
+                            <span>Name of Wine</span>
+                        </div>
+                        
+                        <div class="inputBox">
+                            <input type="number" id="year" name="year" required="required">
+                            <span>Year</span>
+                        </div>
+
+                        <div class="inputBox">
+                            <textarea id="description" name="description" rows="5" cols="30" required="required"></textarea>
+                            <span>Type the description...</span>
+                        </div>
+
+                        <div class="inputBox">
+                        <input type="text" id="food_pairing" name="food_pairing" required>
+                            <span>Food Pairing</span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="text" id="image_url" name="image_url" required>
+                            <span>Image</span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="text" id="type_id" name="type_id" required>
+                            <span>Type ID</span>
+                        </div>
+
+                        <div class="inputBox">
+                            <input type="text" id="winery_id" name="winery_id" required>
+                            <span>Winery ID</span>
+                        </div>
                 </form>
             </div>
         </div>
