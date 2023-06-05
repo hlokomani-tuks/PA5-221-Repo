@@ -46,7 +46,8 @@
             <div class="DataObjectPageLeft row">
                 <div class="col">
                     <br>
-                    <p style="margin-top: 2px; margin-bottom: 2px;"><a style="color: var(--highlight-color)" href="signup.php">Don't have an account, SignUp</a></p>
+                    <!-- <p style="margin-top: 2px; margin-bottom: 2px;"><a style="color: var(--highlight-color)" href="signup.php">Don't have an account, SignUp</a></p> -->
+                    <p>Don't have an account? <a href="signup.php">Sign up here</a></p>
                 </div>
             </div>
         </form>
