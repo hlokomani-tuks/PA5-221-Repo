@@ -24,9 +24,6 @@
                             <label class="required" for="">Name <span class="asterisk">*</span></label>
                             <input class="form-control required" type="text" id="name" name="first_name" onkeyup="validateName()"  required>
 
-                            <label class="required" for="name">Name <span class="asterisk">*</span></label>
-                            <input class="form-control required" type="text" id="name" onkeyup="validateName()" required>
-
                        </div>
                     </div>
                     <div class="form-group">
@@ -35,8 +32,6 @@
                             <label class="required" for="">Middle Initial</label>
                             <input class="form-control required" type="text" id="middle-initial" name="middle_initial" >
 
-                            <label class="required" for="middle-initial">Middle Initial</label>
-                            <input class="form-control required" type="text" id="middle-initial" >
                     </div>
                     </div>
                     <div class="form-group">
@@ -46,9 +41,6 @@
 
                             <label class="required" for="">Surname <span class="asterisk">*</span></label>
                             <input class="form-control" type="text" id="surname"  name="last_name" onkeyup="validateSurname()" required>
-
-                            <label class="required" for="surname">Surname <span class="asterisk">*</span></label>
-                            <input class="form-control" type="text" id="surname" onkeyup="validateSurname()"  required>
 
                         </div>
                     </div>
@@ -64,12 +56,7 @@
                        <div class="col-lg-7">
 
                        <label class="required" for="">Cellphone Number</label>
-                            <input class="form-control" type="cellphone_number" name="cellphone_number" id="cellno">
-
-                            <span></span>
-                            <span class="error" id="cellno-error"></span>
-                            <label class="required" for="cellno">Cellphone Number <span class="asterisk">*</span></label>
-                            <input class="form-control" type="" id="cellno" onkeyup="validateCellNo()">
+                            <input class="form-control" type="cellphone_number" name="cellphone_number" id="cellno" onkeyup="validateCellNo()">
 
                        </div>
                     </div>
@@ -81,10 +68,6 @@
                             <label class="required" for="">Password <span class="asterisk">*</span></label>
                             <input class="form-control" type="password" name="password" id="password" onkeyup="validatePassword()"  required>
 
-                            <span class="error" id="cellno-error"></span>
-                            <label class="required" for="password">Password <span class="asterisk">*</span></label>
-                            <input class="form-control" type="password" id="password" onkeyup="validatePassword()" required>
-
                         </div>
                     </div>
                     <div class="form-group">
@@ -94,9 +77,6 @@
 
                             <label class="required" for="">Confirm Password <span class="asterisk">*</span></label>
                             <input class="form-control" type="confirm_password" id="confirm-password"  onkeyup="confirmPassword()" required>
-
-                            <label class="required" for="confirm-password">Confirm Password <span class="asterisk">*</span></label>
-                            <input class="form-control" type="confirm-password" id="confirm-password" onkeyup="confirmPassword()" required>
 
                         </div>
                     </div>
