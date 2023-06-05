@@ -1,2 +1,13 @@
-# PA5 221 Repo
- COS 221 PA5 Repository Group 13
+******************************************************************
+Read me for 221 PA5 Group 13
+******************************************************************
+        Contributors:
+Ms Zandi - \
+Ms Asa - \
+Mr Aidan - \
+Ms Joyce - \
+Mr Phuthi - \
+Mr Sibisi - \
+Mr Hlokomani Khondlo - u21488593\
+
+*****************************************************************
