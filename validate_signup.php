@@ -1,128 +1,81 @@
+<script src="js/signup.js"></script>
+
 <?php
-    
-    require_once("backend_config.php");
 
-    session_start();
+ session_start();
 
-    $passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
+$passEx = "/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/";
 
-    if($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $data = file_get_contents("php://input");
-        $decoded = json_decode($data);
+$connection = mysqli_connect("wheatley.cs.up.ac.za", "u22506889", "SQZMUYWXTZSQURHKCBDKQQ6RDGAI6LYX", "u22506889_PA5");
 
-        //clean up the data, preventing injection
-        $first_name = stripslashes(htmlspecialchars(trim($decoded->first_name)));
-        $middle_initial = stripslashes(htmlspecialchars(trim($decoded->middle_initial)));
-        $last_name = stripslashes(htmlspecialchars(trim($decoded->last_name)));
-        $email = stripslashes(htmlspecialchars(trim($decoded->email)));
-        $password = stripslashes(htmlspecialchars(trim($decoded->password)));
-        $cellphone = stripslashes(htmlspecialchars(trim($decoded->cellphone)));
-        $is_manager = (int) stripslashes(htmlspecialchars(trim($decoded->is_manager)));
-        
-        //check for empty fields
-        if (
-            empty($first_name) || 
-            empty($middle_initial) || 
-            empty($last_name) ||
-            empty($email) ||
-            empty($password) ||
-            empty($cellphone)
-        ) 
-        {
-            $response = [
-                "response" => "empty_field",
-            ];
-    
-            header("Content-Type: application/json");
-            echo json_encode($response);
-            
-            die();
-        }
 
-        //check password length
-        if(strlen($password) < 8)
-        {
-            $response = [
-                "response" => "short_password",
-            ];
-    
-            header("Content-Type: application/json");
-            echo json_encode($response);
-            
-            die();
-        }
+$first_name = $_POST["first_name"];
+$middle_initial = $_POST["middle_initial"];
+$last_name = $_POST["last_name"];
+$password = $_POST["password"];
+$email = $_POST["email"];
+$cellphone_number = $_POST["cellphone_number"];
 
-        //check for expression
-        if(!preg_match($passEx, $password))
-        {
-            $response = [
-                "response" => "invalid_password",
-            ];
-    
-            header("Content-Type: application/json");
-            echo json_encode($response);
+$is_manager = isset($_POST['user-type']) ? $_POST['user-type'] : 0;
 
-            die();
-        }
 
-        //checks email
-        if(!filter_var($email, FILTER_VALIDATE_EMAIL))
-        {
-            $response = [
-                "response" => "invalid_email",
-            ];
-    
-            header("Content-Type: application/json");
-            echo json_encode($response);
+$sql = "SELECT email FROM User WHERE email = ?";
+$stmt = $connection->prepare($sql);
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$result = $stmt->get_result();
 
-            die();
-        }
+if ($result->num_rows > 0) {
+    $response = [
+        "response" => "already_registered",
+    ];
 
-        $connection = Database::getConnection();
+    header("Content-Type: application/json");
+    echo json_encode($response);
 
-        $sql = "SELECT email FROM User WHERE email = '$email'";
-        $result = mysqli_query($connection, $sql);
+    $stmt->close();
+    $connection->close();
+    die();
+}
 
-        if(mysqli_num_rows($result) > 0)
-        {
-            $response = [
-                "response" => "already_registered",
-            ];
+        // var_dump($first_name);
+        // var_dump($middle_initial);
+        // var_dump($last_name);
+        // var_dump($password);
+        // var_dump($email);
+        // var_dump($cellphone_number);
+        // var_dump($is_manager);
 
-            header("Content-Type: application/json");
-            echo json_encode($response);
+$h_password = password_hash($password, PASSWORD_DEFAULT);
 
-            $connection->close();
-            die();
-        }
+$sql2 = "INSERT INTO User (first_name, middle_initial, last_name, password, email, cellphone_number, is_manager) 
+          VALUES (?,?,?,?,?,?,?)";
 
-        $h_password = password_hash($password, PASSWORD_DEFAULT);
+$stmt2 = $connection->prepare($sql2);
 
-        //inserting new user into the database
-        $sql2 = "INSERT INTO User (first_name, middle_initial, last_name, password, email, cellphone_number, is_manager) 
-             VALUES ('$first_name', '$middle_initial', '$last_name', '$h_password', '$email', '$cellphone', '$is_manager')";
+if (!$stmt2->prepare($sql2))
+{
+    die("sql error");
+}
 
-        if(mysqli_query($connection, $sql2))
-        {
-            $_SESSION["logged_in"] = true;
-            $_SESSION["user_id"] =  $connection->insert_id;
-            $_SESSION["is_manager"] = $is_manager;
-        
-            $response = [
-                "response" => "succesful",
-            ];
+if (!$stmt2) {
+    die("sql error: " . $connection->error);
+}
 
-            header("Content-Type: application/json");
-            echo json_encode($response);
-        } else {
-            $response = [
-                "response" => "failed",
-            ];
+$stmt2->bind_param("sssssss", $first_name, $middle_initial, $last_name, $h_password, $email, $cellphone_number, $is_manager);
+$stmt2->execute();
+$stmt2->close();
+$connection->close();
 
-            header("Content-Type: application/json");
-            echo json_encode($response);
-        }
-    }
+if($is_manager == 1)
+{
+    header("Location: manage.php");
+    exit;
+}
+else
+{
+    header("Location: index.php");
+    exit;
+}
 
-    mysqli_close($connection);
 ?>
