@@ -47,13 +47,8 @@
             <hr>
             <h3 id="location-data"></h3>
             <div class="rating">
-<<<<<<< HEAD
                 <p><i class="fa fa-star checked"></i> SS rating <span class="ss-rating">6</span>/10 <span class="num-ratings">10 ratings</span></p>
                 <p class="c-rating"><i class="fa fa-star checked"></i> Critic rating <span class="critic-rating">3</span>/10</p>
-=======
-                <p id="user-rating"><i class="fa fa-star checked"></i></p>
-                <p id="critic-rating"><i class="fa fa-star checked"></i></p>
->>>>>>> 32a5fd54ccb16ef44324576394a6a44eb5c7dea6
             </div>
             <div class="details">
                 <p class="description" id="description-data"></p>
