@@ -19,34 +19,34 @@
             </div>
             <div class="details-left">
                 <div class="info">
-                    <h5 class="year">Year</h5>
-                    <p>2000</p>
+                    <h5>Year</h5>
+                    <p class="year">2000</p>
                 </div>
                 <div class="info">
-                    <h5 class="sweetness">Sweetness</h5>
-                    <p>Dry</p>
+                    <h5>Sweetness</h5>
+                    <p  class="sweetness">Dry</p>
                 </div>
                 <div class="info">
-                    <h5 class="tannin">Tannin</h5>
-                    <p>Low</p>
+                    <h5>Tannin</h5>
+                    <p class="tannin">Low</p>
                 </div>
                 <div class="info">
-                    <h5 class="region">Winery</h5>
-                    <p>Vino Winery</p>
+                    <h5>Farm</h5>
+                    <p class="farm">Minecraft</p>
                 </div>
                 <div class="info">
-                    <h5 class="region">Variety</h5>
-                    <p>Shiraz</p>
+                    <h5>Food pairing</h5>
+                    <p class="food-pairing">Speckled Eggs</p>
                 </div>
             </div>
         </div>
         <div class="right">
             <h1 class="wine-brand">Fancy Wine Name</h1>
             <hr>
-            <h3>France, Rome</h3>
+            <h3 class="region">France, Rome</h3>
             <div class="rating">
                 <p><i class="fa fa-star checked"></i> SS rating 7/10</p>
-                <p><i class="fa fa-star checked"></i> Critic rating 6.2/10</p>
+                <p class="crtitc rating"><i class="fa fa-star checked"></i> Critic rating 6.2/10</p>
             </div>
             <div class="details">
                 <p class="description">This wine is a nice and tasty wine that smells good too. It was made in a vineyard and belongs to a certain winery somewhere in the world</p>
