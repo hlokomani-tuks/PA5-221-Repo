@@ -214,7 +214,7 @@ function loadWines(obj) {
         document.addEventListener('click', function(e){
             const target = e.target.closest('.wine-col');
             if (target) {
-                window.location.href = `product.php?wine_id=${this.wine_id}`;
+                window.location.href = `product.php?wine_id=${wine_id}`;
             }
         })
         
