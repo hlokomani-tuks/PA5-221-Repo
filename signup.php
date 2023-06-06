@@ -97,7 +97,7 @@
                     </div>
                     <div class="form-group">
                         <div class="col-lg-7">
-                            <button type="submit" class="btn1">Login</button>
+                            <button type="submit" class="btn1">Sign Up</button>
                         </div>
                     </div>
                     <span class="error" id="error-span"></span>
