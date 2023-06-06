@@ -134,6 +134,7 @@ function createWineBoxes(obj){
         //
 
         var box = document.createElement("div");
+        
         box.id = wine_id;
         box.className = "box";
 
@@ -156,17 +157,17 @@ function createWineBoxes(obj){
         box.appendChild(wYear);
 
         box.addEventListener('click', function(){
-            var xhr = new XMLHttpRequest();
-            const body ={
-                "wine_id":this.id
-            };
-            var toSend = JSON.stringify(body);
+            // var xhr = new XMLHttpRequest();
+            // const body ={
+            //     "wine_id":this.id
+            // };
+            // var toSend = JSON.stringify(body);
     
-            req.open('POST', 'http://localhost/PA5-221-Repo/product.php', true);
+            // req.open('POST', 'http://localhost/PA5-221-Repo/product.php', true);
     
-            req.send(toSend);
-    
-            window.location.href = 'product.php';
+            // req.send(toSend);
+            
+            window.location.href = 'product.php?wine_id='+this.id;
         })
 
         document.getElementById("wine-container").appendChild(box);

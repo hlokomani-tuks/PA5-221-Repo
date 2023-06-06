@@ -62,12 +62,6 @@
         </div>
     </div>
     <?php require_once('footer.php') ?>
-
+    <script src="js/product.js"></script>
 </body>
 </html>
-
-<?php
-
-    if($_SERVER['REQUEST_METHOD'] == 'POST'){
-        echo console.log("product page has recieved request");
-    }
