@@ -109,10 +109,10 @@ req.send(toSend);
 req.addEventListener('load', function(){
 
     if(req.status === 200 && req.readyState == 4){
-        console.log(req.responseText);
+        
         var obj = JSON.parse(req.responseText);
         createWineBoxes(obj);
-        console.log("arrived");
+        
     }
 
 });
@@ -135,6 +135,7 @@ function createWineBoxes(obj){
 
         var box = document.createElement("div");
         box.id = wine_id;
+        box.className = "box";
 
         var pic = document.createElement("img");
         pic.src = image;
@@ -157,3 +158,22 @@ function createWineBoxes(obj){
         document.getElementById("wine-container").appendChild(box);
     }
 }
+
+var boxes = document.querySelectorAll('#wine-container .box');
+
+boxes.forEach(function(box){
+    console.log("are we adding event listeners");
+    box.addEventListener('click', function(){
+        var xhr = new XMLHttpRequest();
+        const body ={
+            "wine_id":this.id
+        };
+        var toSend = JSON.stringify(body);
+
+        req.open('POST', 'http://localhost/PA5-221-Repo/product.php', true);
+
+        req.send(toSend);
+
+        window.location.href = 'product.php';
+    })
+})

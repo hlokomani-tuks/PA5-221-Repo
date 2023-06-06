@@ -65,3 +65,9 @@
 
 </body>
 </html>
+
+<?php
+
+    if($_SERVER['REQUEST_METHOD'] == 'POST'){
+        echo console.log("product page has recieved request");
+    }
