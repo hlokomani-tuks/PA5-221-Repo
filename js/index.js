@@ -109,10 +109,8 @@ req.send(toSend);
 req.addEventListener('load', function(){
 
     if(req.status === 200 && req.readyState == 4){
-        
         var obj = JSON.parse(req.responseText);
         createWineBoxes(obj);
-        
     }
 
 });

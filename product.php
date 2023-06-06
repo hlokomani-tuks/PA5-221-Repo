@@ -41,9 +41,9 @@
             </div>
         </div>
         <div class="right">
-            <h1 class="wine-brand">Fancy Wine Name</h1>
+            <h1 class="wine-name" id="wine-name"></h1>
             <hr>
-            <h3>France, Rome</h3>
+            <h3 id="wine-location">France, Rome</h3>
             <div class="rating">
                 <p><i class="fa fa-star checked"></i> SS rating 7/10</p>
                 <p><i class="fa fa-star checked"></i> Critic rating 6.2/10</p>

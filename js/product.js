@@ -20,14 +20,14 @@ req.send(toSend);
 req.addEventListener('load', function(){
 
     if(req.status === 200 && req.readyState == 4){
-        
+        console.log(obj);
         var obj = JSON.parse(req.responseText);
-        populatePager(obj);
+        populatePage(obj);
         
     }
 
 });
 
-function populatePager(obj){
-    
+function populatePage(obj){
+
 }
