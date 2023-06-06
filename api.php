@@ -250,12 +250,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
 
-        // TODO: Add to Wine table
+        $result = $conn->query(
+            "INSERT INTO Wine (name, year, description, food_pairing, image_url, type_id, winery_id) 
+            VALUES (
+                '$decoded->name',
+                '$decoded->year',
+                '$decoded->description',
+                '$decoded->food_pairing',
+                '$decoded->image_url',
+                '$decoded->type_id',
+                '1'
+            )"
+        );
 
-        $response = [
-            'status' => 'success',
-            'timestamp' => time()
-        ];
+        $response = [];
+        
+        if ($result) {
+            $response = [
+                'status' => 'success',
+                'timestamp' => time()
+            ];
+        } else {
+            $response = [
+                'status' => 'error',
+                'timestamp' => time(),
+                'error' => 'There was an issue on the server, try again later'
+            ];
+        }
 
         echo json_encode($response);
         $conn->close();
