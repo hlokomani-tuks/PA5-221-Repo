@@ -147,7 +147,7 @@ function createWineBoxes(obj){
         grapeV.textContent = grape_varieties;
 
         var wYear = document.createElement("h5");
-        wYear.textContent = year;
+        wYear.textContent = "Year: "+year;
 
         box.appendChild(pic);
         box.appendChild(bName);
