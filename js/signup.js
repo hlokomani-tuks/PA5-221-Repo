@@ -1,7 +1,59 @@
-document.getElementById("signup-form").addEventListener("submit", function(event) {
+document.getElementById("signup-form").addEventListener("submit", async function(event) {
     event.preventDefault() // prevent form from submitting
+
+    console.log("Submitting...")
+
+    let headersList = {
+        "Content-Type": "application/json"
+    }
+
+    console.log("Manager: " + $("#manager").val())
     
-   // validateEmail();
+    let bodyContent = JSON.stringify({
+        "first_name": $("#name").val(),
+        "middle_initial": $("#middle-initial").val(),
+        "last_name": $("#surname").val(),
+        "email": $("#email").val(),
+        "cellphone": $("#cellno").val(),
+        "password": $("#password").val(),
+        "is_manager": $("#manager").val()
+    });
+    
+    let response = await fetch("http://localhost/validate_signup.php", { 
+        method: "POST",
+        body: bodyContent,
+        headers: headersList
+    });
+    
+    let data = JSON.parse(await response.text());
+
+    error = $("#error-span")
+    switch (data.response) {
+        case "empty_field":
+            error.html("No fields should be empty")
+            break;
+        case "short_password":
+            error.html("The password you entered is too short")
+            break;
+        case "invalid_password":
+            error.html("The password must contain upper and lowercase letters, a number and a special character")
+            break;
+        case "invalid_email":
+            error.html("The email you entered is invalid")
+            break;
+        case "already_registered":
+            error.html("You are already registered, click login below")
+            break;
+        case "failed":
+            error.html("There was an error on the server, try again later")
+            break;
+        case "succesful":
+            window.location.href = "http://localhost/index.php"
+            break;
+        default:
+            error.html("The universe doesn't want you to sign up")
+            break;
+    }
 });
 
 function validateName() {

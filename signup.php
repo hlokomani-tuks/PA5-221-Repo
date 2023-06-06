@@ -6,16 +6,17 @@
 <html>
     <head>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/signup.css?">
+        <link rel="stylesheet" href="css/signup.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
+        <script defer src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script defer src="js/signup.js"></script>
     </head>
     <body>
-             <script src="js/signup.js"></script>
         <div class="cutout">
             <div class="login-form">
                 <h1>Create An Account</h1>
                 <p>Welcome, dear wine enthusiast!</p>
-                <form id="signup-form" method="post" action="validate_signup.php">
+                <form id="signup-form">
                     <div class="form-group">
                        <div class="col-lg-7">
                             <span></span>
@@ -55,6 +56,7 @@
                     <div class="form-group">
                        <div class="col-lg-7">
 
+                       <span class="error" id="cellno-error"></span>
                        <label class="required" for="">Cellphone Number</label>
                             <input class="form-control" type="cellphone_number" name="cellphone_number" id="cellno" onkeyup="validateCellNo()">
 
@@ -73,7 +75,7 @@
                     <div class="form-group">
                         <div class="col-lg-7">
                             <span></span>
-                            <span class="error" id="confirm-password-error"></span>
+                            <span class="error" id="confirm-password-error"></span> <br>
 
                             <label class="required" for="">Confirm Password <span class="asterisk">*</span></label>
                             <input class="form-control" type="confirm_password" id="confirm-password"  onkeyup="confirmPassword()" required>
@@ -93,6 +95,7 @@
                             <button type="submit" class="btn1">Login</button>
                         </div>
                     </div>
+                    <span class="error" id="error-span"></span>
                     <p>Already have an account? <a href="login.php">Login here</a></p>
                 </form>
             </div>
