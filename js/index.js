@@ -102,7 +102,7 @@ const body = {
 
 var toSend = JSON.stringify(body);
 
-req.open('POST', 'http://localhost/PA5-221-Repo/api.php', true);
+req.open('POST', 'http://localhost/api.php', true);
 
 req.send(toSend);
 
@@ -195,7 +195,7 @@ function loadWines(obj) {
         var colour = obj.data[i].colour;
 
         var html = `
-        <div class="wine-col">
+        <div class="wine-col" id="wine${i}">
             <img class="image" src="${image}" alt=${name} ${grape_varieties}>
             <div class="overlay">
                 <h3 class="grape"> ${grape_varieties}</h3>
@@ -205,17 +205,9 @@ function loadWines(obj) {
         </div> `;
 
         string += html;
-
-        // adds link to each wine box
-        document.addEventListener('click', function(e){
-            const target = e.target.closest('.wine-col');
-            if (target) {
-                window.location.href = `product.php?wine_id=${wine_id}`;
-            }
-        })
         
         loop++;
-        if (loop == 3) {
+        if (loop == 3 || i == obj.data.length - 1) {
             var newRow = document.createElement('div');
             newRow.className = "row";
 
@@ -225,6 +217,14 @@ function loadWines(obj) {
             loop = 0;
         }
 
+    }
+
+    for(var i in obj.data) {
+        let wine_id = obj.data[i].wine_id;
+        
+        document.getElementById(`wine${i}`).addEventListener('click', function(){
+            window.location.href = `product.php?wine_id=${wine_id}`;
+        })
     }
 }
 
