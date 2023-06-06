@@ -20,6 +20,9 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="about.php">Our Story</a></li>
                     <?php if(isset($_SESSION["logged_in"])): ?>
+                        <?php if((bool) $_SESSION["is_manager"]): ?>
+                            <li><a href="manage.php">Manage</a></li>
+                        <?php endif; ?>
                         <li><a onclick="logout()">Logout</a></li>
                     <?php else: ?>    
                         <li><a href="signup.php">Sign Up</a></li>

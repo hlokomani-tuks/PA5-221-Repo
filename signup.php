@@ -14,9 +14,10 @@
     <body>
         <div class="cutout">
             <div class="login-form">
+                
+                <form id="signup-form">
                 <h1>Create An Account</h1>
                 <p>Welcome, dear wine enthusiast!</p>
-                <form id="signup-form">
                     <div class="form-group">
                        <div class="col-lg-7">
                             <span></span>

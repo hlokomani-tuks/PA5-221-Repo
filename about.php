@@ -8,12 +8,13 @@
     <link rel="stylesheet" href="css/about.css">
 </head>
 <body>
+    
+    
+    <div class="container">
     <div class="heading">
     <h1>About Us</h1>
     <p>Welcome to Sauvignon Syndicate, your ultimate guide to discovering the world of sauvignon wines. We are passionate about sharing our knowledge and appreciation for this exquisite varietal.</p>
     </div>
-    
-    <div class="container">
         <section class="about">
             <div class="about-image">
                 <img src="img/about.jpg">
