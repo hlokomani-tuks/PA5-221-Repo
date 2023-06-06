@@ -105,8 +105,8 @@
         if(mysqli_query($connection, $sql2))
         {
             $_SESSION["logged_in"] = true;
-            $_SESSION["user_id"] = (int) $connection->insert_id;
-            $_SESSION["is_manager"] = (bool) $is_manager;
+            $_SESSION["user_id"] =  $connection->insert_id;
+            $_SESSION["is_manager"] = $is_manager;
         
             $response = [
                 "response" => "succesful",
