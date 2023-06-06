@@ -99,7 +99,7 @@ const body = {
 
 var toSend = JSON.stringify(body);
 
-req.open('POST', 'https://localhost/PA5-2121-Repo', true);
+req.open('POST', 'https://localhost/PA5-2121-Repo/api.php', true);
 
 req.send(toSend);
 
