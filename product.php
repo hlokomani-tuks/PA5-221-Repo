@@ -47,7 +47,7 @@
             <hr>
             <h3 id="location-data"></h3>
             <div class="rating">
-                <p><i class="fa fa-star checked"></i> SS rating <span class="ss-rating">6</span>/10 <span class="num-ratings">10 ratings</span></p>
+                <p><i class="fa fa-star checked"></i> SS rating <span class="ss-rating">6</span>/10 <span class="num-ratings"></span></p>
                 <p class="c-rating"><i class="fa fa-star checked"></i> Critic rating <span class="critic-rating">3</span>/10</p>
             </div>
             <div class="details">
