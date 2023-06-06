@@ -200,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $response = [
                 'status' => 'error',
                 'timestamp' => time(),
-                'error' => 'User must be signed in to add review'
+                'error' => 'You must be signed in to a add review'
             ];
 
             echo json_encode($response);
@@ -210,16 +210,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         $user_id = $_SESSION['user_id'];
-        $wine_id = $decoded->wine_id;
-        $rating = $decoded->rating;
-        $comment = $decoded->comment;
 
-        // TODO: Add to Review table
+        $result = $conn->query(
+            "INSERT INTO Review(rating, comment, is_critic, wine_id, user_id)
+            VALUES (
+                '$decoded->rating',
+                '$decoded->comment',
+                '$decoded->is_critic',
+                '$decoded->wine_id',
+                '$user_id'
+            )"
+        );
 
-        $response = [
-            'status' => 'success',
-            'timestamp' => time()
-        ];
+        $response = [];
+        
+        if ($result) {
+            $response = [
+                'status' => 'success',
+                'timestamp' => time()
+            ];
+        } else {
+            $response = [
+                'status' => 'error',
+                'timestamp' => time(),
+                'error' => 'There was an issue on the server, try again later'
+            ];
+        }
 
         echo json_encode($response);
         $conn->close();
@@ -228,7 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $response = [
                 'status' => 'error',
                 'timestamp' => time(),
-                'error' => 'User must be signed in to add a wine'
+                'error' => 'You must be signed in to add a wine'
             ];
 
             echo json_encode($response);
@@ -251,7 +267,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
 
         $result = $conn->query(
-            "INSERT INTO Wine (name, year, description, food_pairing, image_url, type_id, winery_id) 
+            "INSERT INTO Wine(name, year, description, food_pairing, image_url, type_id, winery_id) 
             VALUES (
                 '$decoded->name',
                 '$decoded->year',
