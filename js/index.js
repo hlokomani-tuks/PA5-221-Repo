@@ -155,25 +155,40 @@ function createWineBoxes(obj){
         box.appendChild(grapeV);
         box.appendChild(wYear);
 
+        box.addEventListener('click', function(){
+            var xhr = new XMLHttpRequest();
+            const body ={
+                "wine_id":this.id
+            };
+            var toSend = JSON.stringify(body);
+    
+            req.open('POST', 'http://localhost/PA5-221-Repo/product.php', true);
+    
+            req.send(toSend);
+    
+            window.location.href = 'product.php';
+        })
+
         document.getElementById("wine-container").appendChild(box);
     }
+
+    
 }
 
-var boxes = document.querySelectorAll('#wine-container .box');
 
-boxes.forEach(function(box){
-    console.log("are we adding event listeners");
-    box.addEventListener('click', function(){
-        var xhr = new XMLHttpRequest();
-        const body ={
-            "wine_id":this.id
-        };
-        var toSend = JSON.stringify(body);
+// boxes.forEach(function(box){
+    
+//     box.addEventListener('click', function(){
+//         var xhr = new XMLHttpRequest();
+//         const body ={
+//             "wine_id":this.id
+//         };
+//         var toSend = JSON.stringify(body);
 
-        req.open('POST', 'http://localhost/PA5-221-Repo/product.php', true);
+//         req.open('POST', 'http://localhost/PA5-221-Repo/product.php', true);
 
-        req.send(toSend);
+//         req.send(toSend);
 
-        window.location.href = 'product.php';
-    })
-})
+//         window.location.href = 'product.php';
+//     })
+// })
