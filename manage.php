@@ -51,49 +51,52 @@
         </div>
     </div>
     <div class="popup" id="popup">
-        <div class="elements">
-            <div class="attributes">
-                <div class="contactForm">
-                    <form action="" method="">
-                        <h2>Adding to a catalogue</h2>
-                        <div class="inputBox">
-                            <input type="text" id="name" name="name" required="required">
-                            <span>Name of Wine</span>
-                        </div>
+        <div class="contactForm">
+            <form action="" method="">
+                <h2>Adding to catalogue</h2>
+                <div class="inputBox">
+                    <input type="text" id="name" name="name" required="required">
+                    <span>Name of Wine</span>
+                </div>        
                         
-                        <div class="inputBox">
-                            <input type="number" id="year" name="year" required="required">
-                            <span>Year</span>
-                        </div>
+                <div class="inputBox">
+                    <input type="number" id="year" name="year" required="required">
+                    <span>Year</span>
+                </div>
 
-                        <div class="inputBox">
-                            <textarea id="description" name="description" rows="5" cols="30" required="required"></textarea>
-                            <span>Type the description...</span>
-                        </div>
+                <div class="inputBox">
+                    <textarea id="description" name="description" rows="5" cols="30" required="required"></textarea>
+                    <span>Type the description...</span>
+                </div>
 
-                        <div class="inputBox">
-                        <input type="text" id="food_pairing" name="food_pairing" required>
-                            <span>Food Pairing</span>
-                        </div>
+                <div class="inputBox">
+                    <input type="text" id="food_pairing" name="food_pairing" required>
+                    <span>Food Pairing</span>
+                </div>
 
-                        <div class="inputBox">
-                            <input type="text" id="image_url" name="image_url" required>
-                            <span>Image</span>
-                        </div>
+                <div class="inputBox">
+                    <input type="file" id="image_url" name="image_url" required>
+                    <label for="image_url"><i class="fa fa-upload"></i> Upload Image</label>
+                    <p class="file-added">No file chosen</p>
+                </div>
 
-                        <div class="inputBox">
-                            <input type="text" id="type_id" name="type_id" required>
-                            <span>Type ID</span>
-                        </div>
+                <div class="inputBox">
+                    <input type="text" id="tannin" name="tannin" required>
+                    <span>Tannin</span>
+                </div>
 
-                        <div class="inputBox">
-                            <input type="text" id="winery_id" name="winery_id" required>
-                            <span>Winery ID</span>
-                        </div>
-                </form>
-            </div>
-        </div>
-        <button onclick="closePopup()">Add</button>
+                <div class="inputBox">
+                    <input type="text" id="sweetness" name="sweetness" required>
+                    <span>Sweetness</span>
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" id="grape_variety" name="grape_variety" required>
+                    <span>Grape Variety</span>
+                </div>
+                <div class="add-btn"><button type="button" onclick="closePopup()">Add</button></div>
+            </form>
+        </div>        
     </div>
 
     <script>
@@ -106,6 +109,13 @@
         function closePopup() {
             popup.classList.remove('open-popup');
         }
+
+        const addBtn = document.getElementByClassName('.add-btn').
+        const fileInfo = document.getElementByClassName('.file-added');
+
+        addBtn.addEventListener('change', () => {
+            if ()
+        })
 
     </script>
     </body>

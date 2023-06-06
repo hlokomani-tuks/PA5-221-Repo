@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,6 @@
             <div class="nav-links">
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="reviews.html">Reviews</a></li>
                     <li><a href="about.php">Our Story</a></li>
                     <?php if(isset($_SESSION["logged_in"])): ?>
                         <li><a onclick="logout()">Logout</a></li>

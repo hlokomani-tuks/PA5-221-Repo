@@ -98,6 +98,9 @@ h3 {
     visibility: hidden;
     box-shadow: 0 4px 0 8px rgba(0,0,0,0.2 ), 0 6px 20px 0 rgba(0,0,0,0.19);
 
+    /*height: 70vh;
+    overflow-y: scroll;*/
+
     transition: transform 0.4s, top 0.4s;
 }
 
@@ -107,8 +110,8 @@ h3 {
     transform: translate(-50%, -90%) scale(1);
 }
 
-.elements {
-    padding-bottom: 8px;
+.popup {
+    margin-bottom: 80px;
 }
 
 .popup button {
@@ -122,10 +125,9 @@ h3 {
     cursor: pointer;
 }
 
-
 .contactForm{
-    width:40%;
-    padding: 40px;
+    width: 80%;
+    position: relative;
     background: #fff;
 }
 
@@ -197,4 +199,26 @@ h3 {
     .contactForm{
         width: 100%;
     }
+}
+
+input[type="file"] {
+   display: none;
+}
+
+label {
+    display: inline-block;
+    color: white;
+    background: rgb(193, 44, 44);
+    text-align: center;
+    padding: 15px 23px;
+    border-radius: 3px;
+}
+
+label i {
+    margin-right: 4px;
+    color: white;
+}
+
+label:active {
+    transform: scale(0.9);
 }
