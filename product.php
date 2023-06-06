@@ -52,7 +52,9 @@
                 <p class="description">This wine is a nice and tasty wine that smells good too. It was made in a vineyard and belongs to a certain winery somewhere in the world</p>
                 <form action="" method="post" id="review">
                     <div class="review-section">
-                        <input type="text" name="" id="" placeholder="Describe your experience...">
+                        <input type="text" name="review" id="" placeholder="Describe your experience...">
+                        <label for="rating">Rating</label>
+                        <input type="number" min="0" max="10" name="rating" id="" required>
                         <button type="button" class="review-btn">Review</button>
                     </div>
                 </form>

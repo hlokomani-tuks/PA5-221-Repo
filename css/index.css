@@ -505,8 +505,9 @@ a {
 }
 
 .wine-col img {
-    display: block;
     object-fit: contain;
+    width: 300px;
+    height: 300px;
 }
 
 .wine-col h3 {
