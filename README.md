@@ -7,13 +7,13 @@ to explore the rich and vast wine landscapes that this country has to offer.\
 More on the functional requirements below.
 
 ## Group Contributors:
-- Ms Zandile Modise - u21508322\
-- Ms Asakundwi Siphuma - u21556416\
-- Mr Aidan Govender - \
-- Ms Itumeleng Moshokoa - u21785742\
-- Mr Phuti Sebashe - \
-- Mr Sibisi Mathebe- \
-- Mr Hlokomani Khondlo - u21488593\
+- Ms Zandile Modise - u21508322
+- Ms Asakundwi Siphuma - u21556416
+- Mr Aidan Govender - 
+- Ms Itumeleng Moshokoa - u21785742
+- Mr Phuti Sebashe - 
+- Mr Sibisi Mathebe- 
+- Mr Hlokomani Khondlo - u21488593
 
 *****************************************************************
 ## Funcitonal Capabilities:
