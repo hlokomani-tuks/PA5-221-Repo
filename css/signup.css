@@ -106,3 +106,8 @@ input[name="user-type"]:checked {
 .error .fa-times-circle {
     color: rgb(228, 61, 61);
 }
+
+.error {
+    color: rgb(228, 61, 61);
+    margin-bottom: 16px;
+}

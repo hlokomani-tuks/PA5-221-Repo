@@ -45,7 +45,7 @@
         echo json_encode($response);
     } else {
         $response = [
-            "response" => "failed"
+            "response" => "wrong_password"
         ];
         
         header("Content-Type: application/json");

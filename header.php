@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sauvignon Syndicate</title>
     <link rel="stylesheet" href="css/header.css">
+    <script defer src="js/header.js"></script>
 </head>
 <body>
 
@@ -17,8 +20,12 @@
                     <li><a href="index.php">Home</a></li>
                     <li><a href="reviews.html">Reviews</a></li>
                     <li><a href="about.php">Our Story</a></li>
-                    <li><a href="signup.php">Sign Up</a></li>
-                    <li><a href="login.php">Login</a></li>
+                    <?php if(isset($_SESSION["logged_in"])): ?>
+                        <li><a onclick="logout()">Logout</a></li>
+                    <?php else: ?>    
+                        <li><a href="signup.php">Sign Up</a></li>
+                        <li><a href="login.php">Login</a></li>
+                    <?php endif; ?>
                     <li><button id="contact"><a href="contact.php">Contact Us</a></button></li>
                 </ul>
             </div>
