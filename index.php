@@ -168,7 +168,7 @@
         <div class="filter-box">
             
         </div>
-        <div class="wines-container">
+        <div class="wines-container" id="wine-container">
             <!--dynamically add wines -->
         </div>
     </section>
