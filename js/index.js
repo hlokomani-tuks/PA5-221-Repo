@@ -94,20 +94,25 @@ function dropdown4() {
 var req = new XMLHttpRequest();
 
 const body = {
-    "type":"get_wines"
+    "type":"get_wines",
+    "wine_id":null,
+    "sort_by":null,
+    "sort_in":null
 };
 
 var toSend = JSON.stringify(body);
 
-req.open('POST', 'https://localhost/PA5-2121-Repo/api.php', true);
+req.open('POST', 'http://localhost/PA5-221-Repo/api.php', true);
 
 req.send(toSend);
 
 req.addEventListener('load', function(){
 
-    if(req.status === 200 && req.readyState === 4){
+    if(req.status === 200 && req.readyState == 4){
+        console.log(req.responseText);
         var obj = JSON.parse(req.responseText);
         createWineBoxes(obj);
+        console.log("arrived");
     }
 
 });
@@ -131,14 +136,23 @@ function createWineBoxes(obj){
         var box = document.createElement("div");
         box.id = wine_id;
 
+        var pic = document.createElement("img");
+        pic.src = image;
+
         var bName = document.createElement("h3");
         bName.textContent = name;
 
+        
         var grapeV = document.createElement("h4");
         grapeV.textContent = grape_varieties;
 
+        var wYear = document.createElement("h5");
+        wYear.textContent = year;
+
+        box.appendChild(pic);
         box.appendChild(bName);
         box.appendChild(grapeV);
+        box.appendChild(wYear);
 
         document.getElementById("wine-container").appendChild(box);
     }
