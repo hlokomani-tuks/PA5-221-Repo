@@ -110,12 +110,12 @@
             popup.classList.remove('open-popup');
         }
 
-        const addBtn = document.getElementByClassName('.add-btn').
-        const fileInfo = document.getElementByClassName('.file-added');
+        // const addBtn = document.getElementByClassName('.add-btn').
+        // const fileInfo = document.getElementByClassName('.file-added');
 
-        addBtn.addEventListener('change', () => {
-            if ()
-        })
+        // addBtn.addEventListener('change', () => {
+        //     if ()
+        // })
 
     </script>
     </body>
