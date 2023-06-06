@@ -64,6 +64,8 @@ function populatePager(obj){
     var wineFarm = document.querySelector('.farm');
     var wineDescription = document.querySelector('.description');
     var img = document.querySelector('img');
+    var userRating = document.querySelector('.ss-rating');
+    var criticRating = document.querySelector('.critic-rating');
 
     wineYear.innerHTML = year;
     wineRegion.innerHTML = country + ", " + province;
@@ -74,4 +76,12 @@ function populatePager(obj){
     wineBrand.innerHTML = winery + " " + grape_varieties;
     wineDescription.innerHTML = descr;
     img.src = image;
+    userRating.innerHTML = user_rating;
+    criticRating.innerHTML = critic_rating;
+
+    // if no critic reviewed, critic rating ain't displayed
+    var cRating = document.querySelector('.c-rating');
+    if (critic_rating_count == 0) {
+        cRating.classList.add('remove');
+    }
 }

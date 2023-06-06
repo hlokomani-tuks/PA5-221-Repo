@@ -81,9 +81,9 @@ nav {
     outline: none;
     color: white;
     cursor: pointer;
-    box-shadow: 3px 2px 10px rgb(19, 18, 18);
+    box-shadow: 3px 2px 10px rgb(0, 0, 0, 0.35);
 }
 
 #contact:hover {
-    background-color: rgba(193, 44, 44, 0.7);
+    transform: scale(0.9);
 }

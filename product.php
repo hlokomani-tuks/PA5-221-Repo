@@ -45,8 +45,8 @@
             <hr>
             <h3 class="region">France, Rome</h3>
             <div class="rating">
-                <p><i class="fa fa-star checked"></i> SS rating 7/10</p>
-                <p class="crtitc rating"><i class="fa fa-star checked"></i> Critic rating 6.2/10</p>
+                <p><i class="fa fa-star checked"></i> SS rating <span class="ss-rating">6</span>/10 <span class="num-ratings">10 ratings</span></p>
+                <p class="c-rating"><i class="fa fa-star checked"></i> Critic rating <span class="critic-rating">3</span>/10</p>
             </div>
             <div class="details">
                 <p class="description">This wine is a nice and tasty wine that smells good too. It was made in a vineyard and belongs to a certain winery somewhere in the world</p>
