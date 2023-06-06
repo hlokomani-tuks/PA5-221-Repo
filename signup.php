@@ -23,7 +23,7 @@
                             <span></span>
                             <span class="error" id="name-error"></span>
 
-                            <label class="required" for="">Name <span class="asterisk">*</span></label>
+                            <label class="required" for="name">Name <span class="asterisk">*</span></label>
                             <input class="form-control required" type="text" id="name" name="first_name" onkeyup="validateName()"  required>
 
                        </div>
@@ -31,7 +31,7 @@
                     <div class="form-group">
                        <div class="col-lg-7">
 
-                            <label class="required" for="">Middle Initial</label>
+                            <label class="required" for="middle-initial">Middle Initial</label>
                             <input class="form-control required" type="text" id="middle-initial" name="middle_initial" >
 
                     </div>
@@ -41,7 +41,7 @@
                             <span></span>
                             <span class="error" id="surname-error"></span>
 
-                            <label class="required" for="">Surname <span class="asterisk">*</span></label>
+                            <label class="required" for="surname">Surname <span class="asterisk">*</span></label>
                             <input class="form-control" type="text" id="surname"  name="last_name" onkeyup="validateSurname()" required>
 
                         </div>
@@ -50,7 +50,7 @@
                         <div class="col-lg-7">
                             <span></span>
                             <span class="error" id="email-error"></span>
-                            <label class="required" for="">Email Address <span class="asterisk">*</span></label>
+                            <label class="required" for="email">Email Address <span class="asterisk">*</span></label>
                             <input class="form-control" type="email" id="email"  name="email" onkeyup="validateEmail()" required>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                             <span></span>
 
                             <span class="error" id="password-error"></span>
-                            <label class="required" for="">Password <span class="asterisk">*</span></label>
+                            <label class="required" for="password">Password <span class="asterisk">*</span></label>
                             <input class="form-control" type="password" name="password" id="password" onkeyup="validatePassword()"  required>
 
                         </div>
@@ -85,15 +85,15 @@
                     </div>
                     <div class="form-group form-check">
                         <input class="form-check-input" type="radio" name="user-type" id="viewer" value="1" checked>
-                        <label class="form-check-label" for="check">Are you a viewer?</label>
+                        <label class="form-check-label" for="viewer">Are you a viewer?</label>
+                    </div>
+                    <div class="form-group form-check">
+                        <input class="form-check-input" type="radio" name="user-type" id="critic" value="1">
+                        <label class="form-check-label" for="ctitic" name="is_critic">Are you a crtitic?</label>
                     </div>
                     <div class="form-group form-check">
                         <input class="form-check-input" type="radio" name="user-type" id="manager" value="1">
-                        <label class="form-check-label" for="check" name="is_manager">Are you a crtitic?</label>
-                    </div>
-                    <div class="form-group form-check">
-                        <input class="form-check-input" type="radio" name="user-type" id="manager" value="1">
-                        <label class="form-check-label" for="check" name="is_manager">Are you winery manager?</label>
+                        <label class="form-check-label" for="manager" name="is_manager">Are you winery manager?</label>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-7">

@@ -180,7 +180,7 @@ function loadWines(obj) {
     var string = '';
     var index = 0;
 
-    for(var i in obj.data){
+    for(var i in obj.data) {
         var wine_id = obj.data[i].wine_id;
         var name = obj.data[i].name;
         var year = obj.data[i].year;
@@ -196,7 +196,7 @@ function loadWines(obj) {
 
         var html = `
         <div class="wine-col" id="wine${i}">
-            <img class="image" src="${image}" alt=${name} ${grape_varieties}>
+            <img class="image" src="${image}" alt="${name} ${grape_varieties}">
             <div class="overlay">
                 <h3 class="grape"> ${grape_varieties}</h3>
                 <p class="wine-name"> ${name}</p>
