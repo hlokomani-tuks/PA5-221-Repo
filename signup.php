@@ -81,8 +81,12 @@
                         </div>
                     </div>
                     <div class="form-group form-check">
-                        <input class="form-check-input" type="radio" name="user-type" id="critic" value="0" checked>
-                        <label class="form-check-label" for="check">Are you a critic?</label>
+                        <input class="form-check-input" type="radio" name="user-type" id="viewer" value="1" checked>
+                        <label class="form-check-label" for="check">Are you a viewer?</label>
+                    </div>
+                    <div class="form-group form-check">
+                        <input class="form-check-input" type="radio" name="user-type" id="manager" value="1">
+                        <label class="form-check-label" for="check" name="is_manager">Are you a crtitic?</label>
                     </div>
                     <div class="form-group form-check">
                         <input class="form-check-input" type="radio" name="user-type" id="manager" value="1">
