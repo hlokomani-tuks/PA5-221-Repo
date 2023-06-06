@@ -76,7 +76,7 @@
 
                 <div class="inputBox">
                     <input type="file" id="image_url" name="image_url" required>
-                    <label for="image_url"><i class="fa fa-upload"></i> Upload Image</label>
+                    <label for="image_url" class="add-file"><i class="fa fa-upload"></i> Upload Image</label>
                     <p class="file-added">No file chosen</p>
                 </div>
 
@@ -110,12 +110,6 @@
             popup.classList.remove('open-popup');
         }
 
-        // const addBtn = document.getElementByClassName('.add-btn').
-        // const fileInfo = document.getElementByClassName('.file-added');
-
-        // addBtn.addEventListener('change', () => {
-        //     if ()
-        // })
 
     </script>
     </body>

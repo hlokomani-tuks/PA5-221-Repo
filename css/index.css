@@ -332,6 +332,7 @@ a {
     width: 130px;
     flex-direction: column;
     position: relative;
+    z-index: 1;
 }
 
 .selected3 {
@@ -402,6 +403,7 @@ a {
     width: 130px;
     flex-direction: column;
     position: relative;
+    z-index: 1;
 }
 
 .selected4 {
@@ -465,4 +467,70 @@ a {
 
 .select-box4 .option4 .radio4 {
     display: none;
+}
+
+/*--------- WINES ---------*/
+
+.wines-container {
+    width: 95%;
+    margin: auto;
+    padding-top: 25px;
+    text-align: center;
+    cursor: default;
+}
+
+.row {
+    margin: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.wine-col {
+    flex-basis: 32%;
+    margin-bottom: 20px;
+    position: relative;
+    overflow: hidden;
+    
+    border-radius: 10px;
+
+    background: #fff;
+
+    transition: 0.5s;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 10px;
+}
+
+.wine-col:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.wine-col img {
+    display: block;
+    object-fit: contain;
+}
+
+.wine-col h3 {
+    padding: 0 9px;
+}
+
+.row {
+    margin: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 22px;
+    padding: 5px;
+}
+
+div .wine-name {
+    font-weight: 700;
 }
