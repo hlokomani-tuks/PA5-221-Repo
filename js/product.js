@@ -39,8 +39,8 @@ function populatePager(obj){
     $("#variety-data").html(data.grape_varieties);
     $("#wine-data").html(`${data.winery_name} ${data.name}`);
     $("#location-data").html(`${data.country}, ${data.province}`);
-    $("#user-rating").html(`User rating: ${data.user_rating}/10`);
-    $("#critic-rating").html(`Critic rating: ${data.critic_rating}/10`);
+    $("#user-rating-data").html(data.user_rating);
+    $("#critic-rating-data").html(data.critic_rating);
     $("#description-data").html(data.description);
     $("#pairing-data").html(data.food_pairing);
 
@@ -91,7 +91,7 @@ function populatePager(obj){
 
     // if no critic reviewed, critic rating ain't displayed
     var cRating = document.querySelector('.c-rating');
-    if (critic_rating_count == 0) {
+    if (data.critic_rating == 0) {
         cRating.classList.add('remove');
     }
 }

@@ -48,7 +48,7 @@ document.getElementById("signup-form").addEventListener("submit", async function
             error.html("There was an error on the server, try again later")
             break;
         case "succesful":
-            window.location.href = "http://localhost/index.php"
+            window.location.href = "index.php"
             break;
         default:
             error.html("The universe doesn't want you to sign up")
