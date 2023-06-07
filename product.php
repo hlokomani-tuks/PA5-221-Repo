@@ -33,12 +33,16 @@
                     <p id="tannin-data"></p>
                 </div>
                 <div class="info">
-                    <h5 class="region">Winery</h5>
+                    <h5 class="winery">Winery</h5>
                     <p id="winery-data"></p>
                 </div>
                 <div class="info">
-                    <h5 class="region">Variety</h5>
+                    <h5 class="variety">Variety</h5>
                     <p id="variety-data"></p>
+                </div>
+                <div class="info">
+                    <h5 class="pairing">Food pairing</h5>
+                    <p id="pairing-data"></p>
                 </div>
             </div>
         </div>
