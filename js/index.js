@@ -11,9 +11,25 @@ function dropdown() {
 
     optionsList.forEach(o => {
         o.addEventListener('click', () => {
-            selected.innerHTML = o.querySelector('label').innerHTML;
+            let option = o.querySelector('label').innerHTML;
+
+            selected.innerHTML = option;
             o.querySelector("input").checked = true;
             optionsContainer.classList.remove('active');
+
+            console.log("Option: " + option);
+
+            switch(option) {
+                case 'Year':
+                    getWines('year');
+                    break;
+                case 'Name':
+                    getWines('name');
+                    break;
+                case 'Winery':
+                    getWines('winery_name')
+                    break;
+            }
         });
     });
 }
@@ -91,31 +107,35 @@ function dropdown4() {
     });
 }
 
-var req = new XMLHttpRequest();
+getWines('wine_id');
 
-const body = {
-    "type":"get_wines",
-    "wine_id":null,
-    "sort_by":null,
-    "sort_in":null
-};
+function getWines(sort_by) {
+    var req = new XMLHttpRequest();
 
-var toSend = JSON.stringify(body);
-
-req.open('POST', 'http://localhost/PA5-221-Repo/api.php', true);
-
-req.send(toSend);
-
-req.addEventListener('load', function(){
-
-    if(req.status === 200 && req.readyState == 4){
-        var obj = JSON.parse(req.responseText);
-        // createWineBoxes(obj);
-        loadWines(obj);
-        // console.log(obj);
-    }
-
-});
+    const body = {
+        "type":"get_wines",
+        "wine_id":null,
+        "sort_by":sort_by,
+        "sort_in":null
+    };
+    
+    var toSend = JSON.stringify(body);
+    
+    req.open('POST', 'http://localhost/PA5-221-Repo/api.php', true);
+    
+    req.send(toSend);
+    
+    req.addEventListener('load', function(){
+    
+        if(req.status === 200 && req.readyState == 4){
+            var obj = JSON.parse(req.responseText);
+            // createWineBoxes(obj);
+            loadWines(obj);
+            // console.log(obj);
+        }
+    
+    });
+}
 
 // function createWineBoxes(obj){
 //     for(var i = 0; i < 9; i++){
@@ -175,6 +195,8 @@ req.addEventListener('load', function(){
 var winesContainer = document.querySelector('.wines-container');
 
 function loadWines(obj) {
+    winesContainer.innerHTML = "";
+
     var loop = 0;
     var string = '';
     var index = 0;
