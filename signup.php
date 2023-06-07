@@ -66,7 +66,7 @@
                             <span></span>
                             <span class="error" id="confirm-password-error"></span>
                             <label class="required" for="">Confirm Password <span class="asterisk">*</span></label>
-                            <input class="form-control" type="confirm-password" id="confirm-password" onkeyup="confirmPassword()" required>
+                            <input class="form-control" type="password" id="confirm-password" onkeyup="confirmPassword()" required>
                         </div>
                     </div>
                     <div class="form-group form-check">
