@@ -64,6 +64,7 @@ var reviewBtn = document.getElementById("review-btn");
 reviewBtn.addEventListener('click', function(){
 
     var comment = document.getElementById("review-comment").value;
+
     var rating = document.getElementById("input-rating").value;
 
     if(comment == ""){
@@ -88,15 +89,20 @@ reviewBtn.addEventListener('click', function(){
     
         req3.send(toSend3);
 
+        
         //handle response
+        if(req3.status === 200 && req.readyState == 4){
+            var obj = JSON.parse(req3.responseText);
+            alert("Your review has been succesfully added.");
+            window.location.reload();
+        }else{
+            var obj = JSON.parse(req3.responseText);
+            console.log(obj.error);
+            alert("You must be logged in to review a wine.")
+        }
     }
 
-    if(req3.status === 200 && req.readyState == 4){
-        alert("Your review has been succesfully added.");
-        window.location.reload();
-    }else{
-        alert("You must be logged in to review a wine.")
-    }
+    
 
 })
 
