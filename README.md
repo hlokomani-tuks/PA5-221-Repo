@@ -61,5 +61,12 @@ If you are logged in and submit the review, a success message will be shown and 
 continue browsing thereafter.
 
                 Wine management:
-sfdhjksdf
+Our web-app allows users who are registered as managers for winerties, add wines that belong to their
+winery. Once they log in, a new page will appear on the header titled "Manage". They can go to this page
+and add all the wine information they need. The web-app will then add the appropriate wine to that
+winery.
+*****************************************************************
+## The database
 
+Our database is hosted on MyPHPAdmin. A dump of the database has been made available on this repository.
+You can download it and import it to your own machine, using MariaDB or any DBMS of your choice.
