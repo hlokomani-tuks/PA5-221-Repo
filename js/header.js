@@ -1,5 +1,5 @@
 function logout() {
-    fetch("http://localhost/logout.php").then(() => {
+    fetch("http://localhost/PA5-221-Repo/logout.php").then(() => {
         window.location.reload()
     })
 }
