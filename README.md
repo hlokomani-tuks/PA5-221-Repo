@@ -11,7 +11,7 @@ More on the functional requirements below.
 - Ms Asakundwi Siphuma - u21556416
 - Mr Aidan Govender - u22520458
 - Ms Itumeleng Moshokoa - u21785742
-- Mr Phuti Sebashe - 
+- Mr Phuti Sebashe - phutisebashe@gmail.com
 - Mr Sibisi Mathebe- u22506889
 - Mr Hlokomani Khondlo - u21488593
 
