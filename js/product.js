@@ -28,6 +28,6 @@ req.addEventListener('load', function(){
 
 });
 
-function populatePage(obj){
-
+function populatePager(obj){
+    
 }

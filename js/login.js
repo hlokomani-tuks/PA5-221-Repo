@@ -10,7 +10,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
         "password": $("#password").val()
     });
 
-    let response = await fetch("http://localhost/validate_login.php", {
+    let response = await fetch("http://localhost/PA5-221-Repo/validate_login.php", {
         method: "POST",
         body: bodyContent,
         headers: headersList
@@ -27,7 +27,7 @@ document.getElementById("login-form").addEventListener("submit", async function(
             error.html("Password is not correct")
             break;
         case "succesful":
-            window.location.href = "http://localhost/index.php"
+            window.location.href = "http://localhost/PA5-221-Repo/index.php"
             break;
     }
 })

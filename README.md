@@ -50,6 +50,8 @@ Once registered, a user must then log in using the details they used when regist
 They will be prompted to enter their email and their password. Once logged in, they have the
 capability of leaving a review on a wine.
 If a user is not registered, an error will be displayed.
+Default login details: email:hello@gmail.com
+                       password:helloWorld123@
 
                 Reviewing a wine:
                         

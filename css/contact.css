@@ -1,13 +1,22 @@
-*{
-    margin:0;
+body {
+    margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-image: url("../img/ales-maze-z0bACVUDTJM-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
 }
 
 .contact{
     position: relative;
     min-height: 100vh;
+    width: 105%;
     padding: 50 px 100px;
     display: flex;
     justify-content: center;

@@ -13,7 +13,7 @@
         <div class="cards">
             <div class="card">
                 <div class="box">
-                    <h1>32</h1>
+                    <h1 id="num-wines">32</h1>
                     <h3>Wines</h3>
                 </div>
                 <div class="icon-case">
@@ -22,7 +22,7 @@
             </div>
             <div class="card">
                 <div class="box">
-                    <h1>154</h1>
+                    <h1 id="num-reviews">154</h1>
                     <h3>Reviews</h3>
                 </div>
                 <div class="icon-case">
@@ -31,8 +31,8 @@
             </div>
             <div class="card">
                 <div class="box">
-                    <h1>2</h1>
-                    <h3>Critics</h3>
+                    <h1 id="rating">2</h1>
+                    <h3>User Rating</h3>
                 </div>
                 <div class="icon-case">
                     <img src="img/critic.svg" alt="">
@@ -43,13 +43,14 @@
 
     <div class="catalogue">
         <div class="add">
-            <h1>Winery Name's Wines </h1>
+            <h1 id="winery-name">Château Margaux Wines </h1>
             <button type="submit" onclick="openPopup()">Add Wine  <i class="fa fa-plus"></i></button>
         </div>
-        <div class="wines">
+        <div class="wines-container">
 
         </div>
     </div>
+
     <div class="popup" id="popup">
         <div class="contactForm">
             <form action="" method="">
@@ -60,7 +61,7 @@
                 </div>        
                         
                 <div class="inputBox">
-                    <input type="number" id="year" name="year" required="required">
+                    <input type="number" min="1800" max="2023" id="year" name="year" required="required">
                     <span>Year</span>
                 </div>
 
@@ -75,48 +76,74 @@
                 </div>
 
                 <div class="inputBox">
-                    <input type="file" id="image_url" name="image_url" required>
-                    <label for="image_url"><i class="fa fa-upload"></i> Upload Image</label>
-                    <p class="file-added">No file chosen</p>
-                </div>
-
-                <div class="inputBox">
-                    <input type="text" id="tannin" name="tannin" required>
-                    <span>Tannin</span>
-                </div>
-
-                <div class="inputBox">
-                    <input type="text" id="sweetness" name="sweetness" required>
-                    <span>Sweetness</span>
-                </div>
-
-                <div class="inputBox">
                     <input type="text" id="grape_variety" name="grape_variety" required>
                     <span>Grape Variety</span>
+                </div>
+
+                <div class="inputBox dropdown">
+                <label for="tannin">Body</label>
+                    <select class="select" name="tannin" id="tannin" required>
+                        <option value="">Light</option>
+                        <option value="">Light-Dry</option>
+                        <option value="">Medium-Dry</option>
+                        <option value="">Full</option>
+                    </select>
+                </div>
+
+                <div class="inputBox dropdown">
+                <label for="tannin">Tannin</label>
+                    <select class="select" name="tannin" id="tannin" required>
+                        <option value="">Low</option>
+                        <option value="">Medium</option>
+                        <option value="">Medium-High</option>
+                        <option value="">High</option>
+                    </select>
+                </div>
+
+                <div class="inputBox dropdown">
+                    <label for="sweetness">Sweetness</label>
+                    <select class="select" name="sweetness" id="sweetness" required>
+                        <option value="">Dry</option>
+                        <option value="">Sweet</option>
+                        <option value="">Semi-Sweet</option>
+                    </select>
+                </div>
+
+                <div class="inputBox dropdown">
+                    <label for="type">Type</label>
+                    <select class="select" name="type" id="type" required>
+                        <option value="">Red</option>
+                        <option value="">White</option>
+                        <option value="">Sparkling</option>
+                        <option value="">Desert</option>
+                        <option value="">Rosé</option>
+                    </select>
+                </div>
+
+                <div class="inputBox">
+                    <input type="file" id="image_url" name="image_url" required>
+                    <label for="image_url" class="add-file"><i class="fa fa-upload"></i> Upload Image</label>
+                    <p class="file-added">No file chosen</p>
                 </div>
                 <div class="add-btn"><button type="button" onclick="closePopup()">Add</button></div>
             </form>
         </div>        
     </div>
 
+    <script src="js/manages.js"></script>
+    <!-- <script src="js/popup.js"></script> -->
     <script>
         const popup = document.getElementById('popup');
-
+        
         function openPopup() {
             popup.classList.add('open-popup');
-        }
-
+        }        
+        
         function closePopup() {
             popup.classList.remove('open-popup');
-        }
-
-        const addBtn = document.getElementByClassName('.add-btn').
-        const fileInfo = document.getElementByClassName('.file-added');
-
-        addBtn.addEventListener('change', () => {
-            if ()
-        })
-
+        }        
+        
     </script>
+
     </body>
 </html>

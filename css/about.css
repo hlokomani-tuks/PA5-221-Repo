@@ -2,14 +2,18 @@
   margin:0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Popins', sans-serif;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Popins', sans-serif;
     line-height: 1.6;
     margin: 20px;
     background-image: url("../img/ales-maze-z0bACVUDTJM-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
   }
   
   .heading{

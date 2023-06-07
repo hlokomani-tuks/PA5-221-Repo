@@ -110,13 +110,76 @@ req.addEventListener('load', function(){
 
     if(req.status === 200 && req.readyState == 4){
         var obj = JSON.parse(req.responseText);
-        createWineBoxes(obj);
+        // createWineBoxes(obj);
+        loadWines(obj);
+        // console.log(obj);
     }
 
 });
 
-function createWineBoxes(obj){
-    for(var i = 0; i < 9; i++){
+// function createWineBoxes(obj){
+//     for(var i = 0; i < 9; i++){
+//         var wine_id = obj.data[i].wine_id;
+//         var name = obj.data[i].name;
+//         var year = obj.data[i].year;
+//         var descr = obj.data[i].description;
+//         var foodpair = obj.data[i].food_pairing;
+//         var image = obj.data[i].image_url;
+//         var user_rating = obj.data[i].user_rating;
+//         var user_rating_count = obj.data[i].user_rating_count;
+//         var critic_rating = obj.data[i].critic_rating;
+//         var critic_rating_count = obj.data[i].critic_rating_count;
+//         var grape_varieties = obj.data[i].grape_varieties;
+//         var colour = obj.data[i].colour;
+
+//         var box = document.createElement("div");
+        
+//         box.id = wine_id;
+//         box.className = "box";
+
+//         var pic = document.createElement("img");
+//         pic.src = image;
+
+//         var bName = document.createElement("h3");
+//         bName.textContent = name;
+
+//         var grapeV = document.createElement("h4");
+//         grapeV.textContent = grape_varieties;
+
+//         var wYear = document.createElement("h5");
+//         wYear.textContent = "Year: "+year;
+
+//         box.appendChild(pic);
+//         box.appendChild(bName);
+//         box.appendChild(grapeV);
+//         box.appendChild(wYear);
+
+//         box.addEventListener('click', function(){
+//             // var xhr = new XMLHttpRequest();
+//             // const body ={
+//             //     "wine_id":this.id
+//             // };
+//             // var toSend = JSON.stringify(body);
+    
+//             // req.open('POST', 'http://localhost/PA5-221-Repo/product.php', true);
+    
+//             // req.send(toSend);
+            
+//             window.location.href = 'product.php?wine_id='+wine_id;
+//         })
+
+//         document.getElementById("wine-container").appendChild(box);
+//     }
+// }
+
+var winesContainer = document.querySelector('.wines-container');
+
+function loadWines(obj) {
+    var loop = 0;
+    var string = '';
+    var index = 0;
+
+    for(var i in obj.data) {
         var wine_id = obj.data[i].wine_id;
         var name = obj.data[i].name;
         var year = obj.data[i].year;
@@ -129,49 +192,40 @@ function createWineBoxes(obj){
         var critic_rating_count = obj.data[i].critic_rating_count;
         var grape_varieties = obj.data[i].grape_varieties;
         var colour = obj.data[i].colour;
-        //
+        var winery = obj.data[i].winery_name;
 
-        var box = document.createElement("div");
+        var html = `
+        <div class="wine-col" id="wine${i}">
+            <img class="image" src="${image}" alt="${name} ${grape_varieties}">
+            <div class="overlay">
+                <h3 class="grape"> ${winery} ${grape_varieties}</h3>
+                <p class="wine-name"> ${name}</p>
+                <p class="year"> ${year}</p>
+            </div>
+        </div> `;
+
+        string += html;
         
-        box.id = wine_id;
-        box.className = "box";
+        loop++;
+        if (loop == 3 || i == obj.data.length - 1) {
+            var newRow = document.createElement('div');
+            newRow.className = "row";
 
-        var pic = document.createElement("img");
-        pic.src = image;
+            newRow.insertAdjacentHTML("afterbegin", string);
+            winesContainer.appendChild(newRow);
+            string = '';
+            loop = 0;
+        }
 
-        var bName = document.createElement("h3");
-        bName.textContent = name;
-
-        
-        var grapeV = document.createElement("h4");
-        grapeV.textContent = grape_varieties;
-
-        var wYear = document.createElement("h5");
-        wYear.textContent = "Year: "+year;
-
-        box.appendChild(pic);
-        box.appendChild(bName);
-        box.appendChild(grapeV);
-        box.appendChild(wYear);
-
-        box.addEventListener('click', function(){
-            // var xhr = new XMLHttpRequest();
-            // const body ={
-            //     "wine_id":this.id
-            // };
-            // var toSend = JSON.stringify(body);
-    
-            // req.open('POST', 'http://localhost/PA5-221-Repo/product.php', true);
-    
-            // req.send(toSend);
-            
-            window.location.href = 'product.php?wine_id='+this.id;
-        })
-
-        document.getElementById("wine-container").appendChild(box);
     }
 
-    
+    for(var i in obj.data) {
+        let wine_id = obj.data[i].wine_id;
+        
+        document.getElementById(`wine${i}`).addEventListener('click', function(){
+            window.location.href = `product.php?wine_id=${wine_id}`;
+        })
+    }
 }
 
 

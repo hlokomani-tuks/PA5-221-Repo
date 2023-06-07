@@ -34,8 +34,8 @@
     
     if ($verfied) {
         $_SESSION["logged_in"] = true;
-        $_SESSION["user_id"] = (int) $row['user_id'];
-        $_SESSION["is_manager"] = (bool) $row['is_manager'];
+        $_SESSION["user_id"] = $row['user_id'];
+        $_SESSION["is_manager"] = $row['is_manager'];
 
         $response = [
             "response" => "succesful"
