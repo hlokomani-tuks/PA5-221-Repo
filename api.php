@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $conn->close();
     } else if ($decoded->type == 'get_reviews') {
-        // TODO: Return error when ID does not exist
+        
         $wine_id = $decoded->wine_id;
         $result = $conn->query(
             "SELECT 

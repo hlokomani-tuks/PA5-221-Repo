@@ -58,10 +58,10 @@
                 <p class="description" id="description-data"></p>
                 <form action="" method="post" id="review">
                     <div class="review-section">
-                        <input type="text" name="review" id="" placeholder="Describe your experience...">
+                        <input type="text" name="review" id="review-comment" placeholder="Describe your experience...">
                         <label for="rating">Rating</label>
-                        <input type="number" min="0" max="10" name="rating" id="" required>
-                        <button type="button" class="review-btn">Review</button>
+                        <input type="number" min="0" max="10" name="rating" id="input-rating" required>
+                        <button type="button" class="review-btn" id="review-btn">Add Review</button>
                     </div>
                 </form>
                 
@@ -71,7 +71,7 @@
     </div>
 
     <div id="review-section">
-        
+
     </div>
     <?php require_once('footer.php') ?>
 </body>

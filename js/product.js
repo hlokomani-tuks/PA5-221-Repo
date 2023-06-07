@@ -1,3 +1,4 @@
+// calling api to get the wine for this page
 const urlParams = new URLSearchParams(window.location.search);
 const wineID = urlParams.get('wine_id');
 
@@ -28,7 +29,7 @@ req.addEventListener('load', function(){
 
 });
 
-//Populating reviews for each wine
+//Calling api to get reviews for that specific wine
 
 var req2= new XMLHttpRequest();
 
@@ -58,6 +59,51 @@ req2.addEventListener('load', function(){
 
 });
 
+//add review functionality
+var reviewBtn = document.getElementById("review-btn");
+reviewBtn.addEventListener('click', function(){
+
+    var comment = document.getElementById("review-comment").value;
+    var rating = document.getElementById("input-rating").value;
+
+    if(comment == ""){
+        alert("You cannot submit an empty review.");
+
+    }else if(rating == ""){
+        alert("You must specify the rating please.");
+    }
+    else{
+        var req3 = new XMLHttpRequest();
+        const body3 = {
+            "type":"add_review",
+            "is_critic":0,
+            "rating":rating,
+            "comment":comment,
+            "wine_id":wineID
+        };
+    
+        var toSend3 = JSON.stringify(body3);
+    
+        req3.open('POST', 'http://localhost/PA5-221-Repo/api.php', true);
+    
+        req3.send(toSend3);
+
+        //handle response
+    }
+
+    if(req3.status === 200 && req.readyState == 4){
+        alert("Your review has been succesfully added.");
+        window.location.reload();
+    }else{
+        alert("You must be logged in to review a wine.")
+    }
+
+})
+
+
+//functions
+
+
 function populatePager(obj){
     let data = obj.data;
     
@@ -74,50 +120,7 @@ function populatePager(obj){
     $("#description-data").html(data.description);
     $("#pairing-data").html(data.food_pairing);
 
-    // var i = 0;
-    // var wine_id = obj.wine_id;
-    // var name = obj.data.name;
-    // var year = obj.data.year;
-    // var descr = obj.data.description;
-    // var foodpair = obj.data.food_pairing;
-    // var image = obj.data.image_url;
-    // var user_rating = obj.data.user_rating;
-    // var user_rating_count = obj.data.user_rating_count;
-    // var critic_rating = obj.data.critic_rating;
-    // var critic_rating_count = obj.data.critic_rating_count;
-    // var grape_varieties = obj.data.grape_varieties;
-    // var colour = obj.data.colour;   
-    // var winery = obj.data.winery_name;   
-    // var sweetness = obj.data.sweetness;
-    // var tannin = obj.data.tannin;
-    // var farm = obj.data.farm;
-    // var country = obj.data.country;
-    // var province = obj.data.province;
-
-
-    // var wineBrand = document.querySelector('.wine-brand');
-    // var wineRegion = document.querySelector('.region');
-    // var wineYear = document.querySelector('.year');
-    // var wineSweetness = document.querySelector('.sweetness');
-    // var wineTannin = document.querySelector('.tannin');
-    // var wineFoodPairing = document.querySelector('.food-pairing');
-    // var wineFarm = document.querySelector('.farm');
-    // var wineDescription = document.querySelector('.description');
-    // var img = document.querySelector('img');
-    // var userRating = document.querySelector('.ss-rating');
-    // var criticRating = document.querySelector('.critic-rating');
-
-    // wineYear.innerHTML = year;
-    // wineRegion.innerHTML = country + ", " + province;
-    // wineSweetness.innerHTML = sweetness;
-    // wineTannin.innerHTML = tannin;
-    // wineFoodPairing.innerHTML = foodpair;
-    // wineFarm.innerHTML = farm;
-    // wineBrand.innerHTML = winery + " " + grape_varieties;
-    // wineDescription.innerHTML = descr;
-    // img.src = image;
-    // userRating.innerHTML = user_rating;
-    // criticRating.innerHTML = critic_rating;
+    
 
     // if no critic reviewed, critic rating ain't displayed
     var cRating = document.querySelector('.c-rating');
@@ -128,7 +131,7 @@ function populatePager(obj){
 
 function populateReviews(obj){
     let data = obj.data;
-    console.log(data);
+    
 
     //critic reviews must be the first to show
     for(var i in data) {
