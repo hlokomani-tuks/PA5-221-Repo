@@ -70,9 +70,13 @@
         </div>
     </div>
 
-    <div id="review-section">
-
+    <div class="section-review">
+        <h1>Reviews</h1>
+        <div id="review-section">
+        
+        </div>
     </div>
+    
     <?php require_once('footer.php') ?>
 </body>
 </html>

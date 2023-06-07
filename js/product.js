@@ -148,6 +148,7 @@ function populateReviews(obj){
             var comment = data[i].comment;
 
             var box = document.createElement("div");
+            box.className = "review-row";
             box.id = "review"+i;
 
             var name = document.createElement("h4");
@@ -162,8 +163,25 @@ function populateReviews(obj){
             box.appendChild(name);
             box.appendChild(uRating);
             box.appendChild(uComment);
+
+            // html = `
+            //     <div class="review-row">
+            //         <h3 id="reviewee"></h3>
+            //         <h3 id="user-rating"></h3>
+            //         <h5 id="comment"></h5>
+            //     </div>
+            // `;
+
+            // $("#reviewee").html(fName + " " + lName);
+            // $("#user-rating").html(uRating);
+            // $("#comment").html(uComment);
+
+            // var newRow = document.createElement('div');
+            // newRow.insertAdjacentHTML("afterbegin", html);
+            // document.getElementById("review-section").appendChild(newRow);
             
             document.getElementById("review-section").appendChild(box);
+            
         }
     }
 
@@ -176,6 +194,7 @@ function populateReviews(obj){
             var comment = data[i].comment;
     
             var box = document.createElement("div");
+            box.className = "review-row";
             box.id = "review"+i;
     
             var name = document.createElement("h4");
@@ -188,10 +207,27 @@ function populateReviews(obj){
             uComment.textContent = comment;
             
             box.appendChild(name);
-                box.appendChild(uRating);
-                box.appendChild(uComment);
+            box.appendChild(uRating);
+            box.appendChild(uComment);
                 
-                document.getElementById("review-section").appendChild(box);
+            document.getElementById("review-section").appendChild(box);
+
+            // html = `
+            //     <div class="review-row">
+            //         <h3 id="reviewee"></h3>
+            //         <h3 id="user-rating"></h3>
+            //         <h5 id="comment"></h5>
+            //     </div> <br>
+            // `;
+
+            // $("#reviewee").html(fName + " " + lName);
+            // $("#user-rating").html(rating);
+            // $("#comment").html(comment);
+
+            // var newRow = document.createElement('div');
+            // newRow.insertAdjacentHTML("afterbegin", html);
+            // document.getElementById("review-section").appendChild(newRow);
+
         }
         
     }
