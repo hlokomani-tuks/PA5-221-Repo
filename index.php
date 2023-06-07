@@ -120,7 +120,7 @@
                         <div class="options-container4">
                             <div class="option4">
                                 <input type="radio" class="radio4" name="sort-by" id="">
-                                <label for="">Price</label>
+                                <label for="">Pinot Noir</label>
                             </div>
                             <div class="option4">
                                 <input type="radio" class="radio4" name="sort-by" id="">

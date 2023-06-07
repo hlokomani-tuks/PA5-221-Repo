@@ -15,7 +15,7 @@
         <div class="cards">
             <div class="card">
                 <div class="box">
-                    <h1 id="num-wines">32</h1>
+                    <h1 id="num-wines">16</h1>
                     <h3>Wines</h3>
                 </div>
                 <div class="icon-case">
@@ -24,7 +24,7 @@
             </div>
             <div class="card">
                 <div class="box">
-                    <h1 id="num-reviews">154</h1>
+                    <h1 id="num-reviews">19</h1>
                     <h3>Reviews</h3>
                 </div>
                 <div class="icon-case">
@@ -33,7 +33,7 @@
             </div>
             <div class="card">
                 <div class="box">
-                    <h1 id="rating">2</h1>
+                    <h1 id="rating">6.9</h1>
                     <h3>User Rating</h3>
                 </div>
                 <div class="icon-case">

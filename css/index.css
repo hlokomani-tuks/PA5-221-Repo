@@ -108,6 +108,7 @@ a {
     width: 130px;
     flex-direction: column;
     position: relative;
+    z-index: 1;
 }
 
 .selected {
@@ -179,6 +180,7 @@ a {
     width: 130px;
     flex-direction: column;
     position: relative;
+    z-index: 1;
 }
 
 .selected1 {
@@ -250,6 +252,7 @@ a {
     width: 130px;
     flex-direction: column;
     position: relative;
+    z-index: 1;
 }
 
 .selected2 {
