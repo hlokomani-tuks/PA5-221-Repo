@@ -193,12 +193,13 @@ function loadWines(obj) {
         var critic_rating_count = obj.data[i].critic_rating_count;
         var grape_varieties = obj.data[i].grape_varieties;
         var colour = obj.data[i].colour;
+        var winery = obj.data[i].winery_name;
 
         var html = `
         <div class="wine-col" id="wine${i}">
             <img class="image" src="${image}" alt="${name} ${grape_varieties}">
             <div class="overlay">
-                <h3 class="grape"> ${grape_varieties}</h3>
+                <h3 class="grape"> ${winery} ${grape_varieties}</h3>
                 <p class="wine-name"> ${name}</p>
                 <p class="year"> ${year}</p>
             </div>
