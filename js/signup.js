@@ -1,8 +1,6 @@
 document.getElementById("signup-form").addEventListener("submit", async function(event) {
     event.preventDefault() // prevent form from submitting
 
-    console.log("Submitting...")
-
     let headersList = {
         "Content-Type": "application/json"
     }
@@ -19,7 +17,7 @@ document.getElementById("signup-form").addEventListener("submit", async function
         "is_manager": $("#manager").val()
     });
     
-    let response = await fetch("http://localhost/validate_signup.php", { 
+    let response = await fetch("http://localhost/PA5-221-Repo/validate_signup.php", { 
         method: "POST",
         body: bodyContent,
         headers: headersList
