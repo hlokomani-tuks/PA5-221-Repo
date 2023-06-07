@@ -28,6 +28,36 @@ req.addEventListener('load', function(){
 
 });
 
+//Populating reviews for each wine
+
+var req2= new XMLHttpRequest();
+
+const body2 = {
+    "type":"get_reviews",
+    "wine_id":wineID
+}
+
+var toSend2 = JSON.stringify(body2);
+
+req2.open('POST', 'http://localhost/PA5-221-Repo/api.php', true);
+
+req2.send(toSend2);
+
+req2.addEventListener('load', function(){
+
+    if(req2.status === 200 && req2.readyState == 4){
+        
+        var obj = JSON.parse(req2.responseText);
+        populateReviews(obj);
+        
+    }else{
+        var text = document.createElement("h3");
+        text.textContent = "There are currently no reviews for this wine";
+        document.getElementById("review-section").appendChild(text);
+    }
+
+});
+
 function populatePager(obj){
     let data = obj.data;
     
@@ -93,5 +123,67 @@ function populatePager(obj){
     var cRating = document.querySelector('.c-rating');
     if (data.critic_rating == 0) {
         cRating.classList.add('remove');
+    }
+}
+
+function populateReviews(obj){
+    let data = obj.data;
+    console.log(data);
+
+    //critic reviews must be the first to show
+    for(var i in data) {
+        if(data[i].is_critic == 1){
+            var fName = data[i].first_name;
+            var lName = data[i].last_name;
+            var rating = data[i].rating;
+            var comment = data[i].comment;
+
+            var box = document.createElement("div");
+            box.id = "review"+i;
+
+            var name = document.createElement("h4");
+            name.textContent ="Verified Critic: " + fName + " " + lName;
+
+            var uRating = document.createElement("h4");
+            uRating.textContent = rating;
+
+            var uComment = document.createElement("h5");
+            uComment.textContent = comment;
+
+            box.appendChild(name);
+            box.appendChild(uRating);
+            box.appendChild(uComment);
+            
+            document.getElementById("review-section").appendChild(box);
+        }
+    }
+
+    //then normal user reviews must show
+    for(var i in data) {
+        if(data[i].is_critic == 0){
+            var fName = data[i].first_name;
+            var lName = data[i].last_name;
+            var rating = data[i].rating;
+            var comment = data[i].comment;
+    
+            var box = document.createElement("div");
+            box.id = "review"+i;
+    
+            var name = document.createElement("h4");
+            name.textContent = fName + " " + lName;
+    
+            var uRating = document.createElement("h4");
+            uRating.textContent = rating;
+    
+            var uComment = document.createElement("h5");
+            uComment.textContent = comment;
+            
+            box.appendChild(name);
+                box.appendChild(uRating);
+                box.appendChild(uComment);
+                
+                document.getElementById("review-section").appendChild(box);
+        }
+        
     }
 }

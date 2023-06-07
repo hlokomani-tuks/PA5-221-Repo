@@ -115,6 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $conn->close();
     } else if ($decoded->type == 'get_reviews') {
         // TODO: Return error when ID does not exist
+        $wine_id = $decoded->wine_id;
         $result = $conn->query(
             "SELECT 
                 first_name, 
@@ -131,26 +132,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $reviews = [];
 
-        while ($row = $result->fetch_assoc()) {
-            $reviews[] = [
-                "first_name" => $row["first_name"],
-                "middle_initial" => $row["middle_initial"],
-                "last_name" => $row["last_name"],
-                "rating" => $row["rating"],
-                "comment" => $row["comment"],
-                "is_critic" => (bool) $row["is_critic"]
+        if($result->num_rows == 0){
+            $response = [
+                "status" => "error",
+                "timestamp" => time(),
+                "error" => "There are no reviews for this wine."
             ];
+
+            echo json_encode($response);
+    
+            $conn->close();
+        }else{
+            while ($row = $result->fetch_assoc()) {
+                $reviews[] = [
+                    "first_name" => $row["first_name"],
+                    "middle_initial" => $row["middle_initial"],
+                    "last_name" => $row["last_name"],
+                    "rating" => $row["rating"],
+                    "comment" => $row["comment"],
+                    "is_critic" => (bool) $row["is_critic"]
+                ];
+            }
+    
+            $response = [
+                "status" => "success",
+                "timestamp" => time(),
+                "data" => $reviews
+            ];
+    
+            echo json_encode($response);
+    
+            $conn->close();
         }
-
-        $response = [
-            "status" => "success",
-            "timestamp" => time(),
-            "data" => $reviews
-        ];
-
-        echo json_encode($response);
-
-        $conn->close();
+        
     } else if ($decoded->type == "get_wineries") {
         $result = $conn->query(
             "SELECT 
@@ -170,6 +184,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         );
 
         $wineries = [];
+
+
 
         while ($row = $result->fetch_assoc()) {
             $wineries[] = [

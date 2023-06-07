@@ -69,6 +69,10 @@
             
         </div>
     </div>
+
+    <div id="review-section">
+        
+    </div>
     <?php require_once('footer.php') ?>
 </body>
 </html>
