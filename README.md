@@ -53,6 +53,16 @@ If a user is not registered, an error will be displayed.
 Default login details: email:hello@gmail.com
                        password:helloWorld123@
 
+
+                Viewing a wine;
+                
+This is a core mechanic of our web application. Right from the home page, users can browse and sort wines
+to find exactly what they are looking for. Once found, they can click on a wine and they will be redirected to
+a page that shows them more information about the wine. Information such as: year, region, sweetness, tannin,
+winery name, variety of grape and the food that pairs best with that wine. They will also be shown an image
+of the wine so that they can find it with ease at a wine store.
+
+
                 Reviewing a wine:
                         
 If a user would like to review a wine, they can click on the wine they'd like to review from the
@@ -60,13 +70,39 @@ home page. Then there will be a textbox together with a button underneath it to 
 If you are logged in and submit the review, a success message will be shown and you can 
 continue browsing thereafter.
 
+                Reading reviews:
+To view reviews on a wine, you can click on the wine you'd like to view from the home page. Reviews from users and critics
+will be right below the information about the wine. Critic reviews appear first because they inform users
+better. 
+
+A wine's average ratings are also shown for each wine. There are two reviews shown. An average
+critic rating and then an average user/customer rating. Some wines might not have critic ratings and reviews.
+
                 Wine management:
-Our web-app allows users who are registered as managers for winerties, add wines that belong to their
+Our web-app allows users who are registered as managers for wineries, add wines that belong to their
 winery. Once they log in, a new page will appear on the header titled "Manage". They can go to this page
 and add all the wine information they need. The web-app will then add the appropriate wine to that
-winery.
+winery on the database.
 *****************************************************************
 ## The database
 
 Our database is hosted on MyPHPAdmin. A dump of the database has been made available on this repository.
 You can download it and import it to your own machine, using MariaDB or any DBMS of your choice.
+
+FOLLOW THESE INSTRUCTIONS TO IMPORT DATABASE USING MARIADB:
+
+1. Download the sql file, remember the path where you downloaded it.
+
+2. Log into MariaDB from CMD using your own user privileges.
+
+3. CREATE a new database and name it.
+
+3. Exit MariaDB
+
+4. Type this command: 
+	$ mysql -u (username) -p (new database name) < (dump file name.sql)
+
+	Where $ is your filepath for mysql.exe
+5. Enter your password
+
+If ran succesfully, there will be no output. To check, you can use your new database and show the tables.
