@@ -4,8 +4,6 @@ document.getElementById("signup-form").addEventListener("submit", async function
     let headersList = {
         "Content-Type": "application/json"
     }
-
-    console.log("Manager: " + $("#manager").val())
     
     let bodyContent = JSON.stringify({
         "first_name": $("#name").val(),
@@ -14,7 +12,7 @@ document.getElementById("signup-form").addEventListener("submit", async function
         "email": $("#email").val(),
         "cellphone": $("#cellno").val(),
         "password": $("#password").val(),
-        "is_manager": $("#manager").val()
+        "is_manager": $("#manager").prop("checked") ? 1 : 0
     });
     
     let response = await fetch("http://localhost/PA5-221-Repo/validate_signup.php", { 
