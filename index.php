@@ -141,15 +141,15 @@
                         <div class="options-container">
                             <div class="option">
                                 <input type="radio" class="radio" name="sort-by" id="">
-                                <label for="">Price</label>
+                                <label for="">Year</label>
                             </div>
                             <div class="option">
                                 <input type="radio" class="radio" name="sort-by" id="">
-                                <label for="">Vintage</label>
+                                <label for="">Name</label>
                             </div>
                             <div class="option">
                                 <input type="radio" class="radio" name="sort-by" id="">
-                                <label for="">Quality</label>
+                                <label for="">Winery</label>
                             </div>
                         </div>
                         <div class="selected" onClick="dropdown()">Sort By</div>
