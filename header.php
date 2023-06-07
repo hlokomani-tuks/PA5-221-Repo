@@ -22,9 +22,7 @@
                     <?php if(isset($_SESSION["logged_in"])): ?>
                         <?php if((bool) $_SESSION["is_manager"]): ?>
                             <li><a href="manage.php">Manage</a></li>
-                        <?php endif; 
-                        session_destroy();
-                        ?>
+                        <?php endif; ?>
                         <li><a href="login.php">Logout</a></li>
                     <?php else: ?>    
                         <li><a href="signup.php">Sign Up</a></li>

@@ -6,6 +6,8 @@
     <head>
         <link rel="stylesheet" href="css/manage.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css">
+        <script defer src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+        <script defer src="js/manages.js"></script>
     </head>
     <body>
         
@@ -125,7 +127,10 @@
                     <label for="image_url" class="add-file"><i class="fa fa-upload"></i> Upload Image</label>
                     <p class="file-added">No file chosen</p>
                 </div>
-                <div class="add-btn"><button type="button" onclick="closePopup()">Add</button></div>
+                <div class="add-btn">
+                    <button type="button" onclick="closePopup()">Cancel</button>
+                    <button type="button" onclick="addWine()">Add</button>
+                </div>
             </form>
         </div>        
     </div>

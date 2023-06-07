@@ -18,7 +18,7 @@ const wineryName = urlParams.get('winery_name');
 var winesContainer = document.querySelector('.wines-container');
 
 getWines();
-getWinery();
+// getWinery();
 
 // trying to get wines that belong to specific winery
 function getWines() {
@@ -43,7 +43,7 @@ function getWines() {
             var obj = JSON.parse(req.responseText);
 
             // console.log(obj);
-            populateWinery(obj);
+            loadWines(obj);
         }
 
     });
@@ -156,4 +156,34 @@ function loadWines(obj) {
             window.location.href = `product.php?wine_id=${wine_id}`;
         })
     }
+}
+
+
+async function addWine() {
+    let headersList = {
+        "Content-Type": "application/json"
+    }
+
+    let bodyContent = JSON.stringify({
+        "type": "add_wine",
+        "name": $("#name").val(),
+        "year": $("#year").val(),
+        "description": $("#description").val(),
+        "food_pairing": $("#food_pairing").val(),
+        // Dummy link, image would be put on some storage server and the link retrieved and put here
+        "image_url": "https://t2.gstatic.com/images?q=tbn:ANd9GcSZIKJkYYh03df8VeBZQICg_i3gtFkbePFcRr-7yS7b5LwlWjq-", 
+        "type_id": $("#type").prop("selectedIndex")
+    });
+
+    console.log(bodyContent)
+
+    await fetch("http://localhost/PA5-221-Repo/api.php", { 
+        method: "POST",
+        body: bodyContent,
+        headers: headersList
+    });
+
+    closePopup();
+    
+    window.location.reload();
 }

@@ -109,7 +109,7 @@ h3 {
 .open-popup {
     visibility: visible;
     top: 4%;
-    transform: translate(-50%, -90%) scale(1);
+    transform: translate(-50%, -10%) scale(1);
 }
 
 .popup {
