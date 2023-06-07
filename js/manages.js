@@ -172,7 +172,7 @@ async function addWine() {
         "food_pairing": $("#food_pairing").val(),
         // Dummy link, image would be put on some storage server and the link retrieved and put here
         "image_url": "https://t2.gstatic.com/images?q=tbn:ANd9GcSZIKJkYYh03df8VeBZQICg_i3gtFkbePFcRr-7yS7b5LwlWjq-", 
-        "type_id": $("#type").prop("selectedIndex")
+        "type_id": $("#type").prop("selectedIndex") + 1
     });
 
     console.log(bodyContent)
@@ -184,6 +184,6 @@ async function addWine() {
     });
 
     closePopup();
-    
+
     window.location.reload();
 }
